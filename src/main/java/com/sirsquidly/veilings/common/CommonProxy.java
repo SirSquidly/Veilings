@@ -6,7 +6,6 @@ import com.sirsquidly.veilings.init.VeilingsEntities;
 import com.sirsquidly.veilings.init.VeilingsItems;
 import com.sirsquidly.veilings.init.VeilingsLootTables;
 import com.sirsquidly.veilings.init.VeilingsSounds;
-import com.sirsquidly.veilings.network.CFDPacketHandler;
 import com.sirsquidly.veilings.util.veilingItemUse.*;
 import com.sirsquidly.veilings.veilings;
 import net.minecraft.entity.Entity;
@@ -38,7 +37,6 @@ public class CommonProxy
         VeilingsEntities.registerEntities();
         VeilingsLootTables.registerLootTables();
         VeilingsSounds.registerSounds();
-        CFDPacketHandler.registerMessages();
 
         if (FMLCommonHandler.instance().getEffectiveSide() == Side.CLIENT) VeilingsEntities.RegisterRenderers();
     }
@@ -46,8 +44,6 @@ public class CommonProxy
     public void postInitRegisteries(FMLPostInitializationEvent event)
     {
         ConfigParser.breakupConfigArrays();
-        VeilingsEntities.registerEntitySpawns();
-
 
         /* Add all items from the Treat list. */
         for (int i = 0; i < ConfigParser.veilingTreatItems.size(); i++)

@@ -2,7 +2,7 @@
   {
     "modid": "veilings",
     "name": "Veilings",
-    "description": "Adds your new friendd",
+    "description": "Adds Veilings, little spirit imps to fight for you, but need to be cared for.",
     "version": "${version}",
     "mcversion": "${mcversion}",
     "url": "modpage",

@@ -28,9 +28,6 @@ public class VeilingsEntities
         registerEntity("spirit_dagger", EntitySpiritDagger.class, ++id, 100);
     }
 
-    public static void registerEntitySpawns()
-    {}
-
     @SideOnly(Side.CLIENT)
     public static void RegisterRenderers()
     {
