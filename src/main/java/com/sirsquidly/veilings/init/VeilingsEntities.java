@@ -35,6 +35,14 @@ public class VeilingsEntities
     public static void RegisterRenderers()
     {
         RenderingRegistry.registerEntityRenderingHandler(EntityVeilingCustodian.class, RenderVeilingCustodian::new);
+        RenderingRegistry.registerEntityRenderingHandler(EntityVeilingDeft.class, RenderVeilingDeft::new);
+        RenderingRegistry.registerEntityRenderingHandler(EntityVeilingDramatist.class, RenderVeilingDramatist::new);
+
+        RenderingRegistry.registerEntityRenderingHandler(EntityWickedVeilingCustodian.class, RenderWickedVeilingCustodian::new);
+        RenderingRegistry.registerEntityRenderingHandler(EntityWickedVeilingDeft.class, RenderWickedVeilingDeft::new);
+        RenderingRegistry.registerEntityRenderingHandler(EntityWickedVeilingDramatist.class, RenderWickedVeilingDramatist::new);
+
+        RenderingRegistry.registerEntityRenderingHandler(EntitySpiritDagger.class, RenderSpiritDagger::new);
     }
 
     private static void registerEntity(String name, Class<? extends Entity> entity, int id, int range, int color1, int color2)
