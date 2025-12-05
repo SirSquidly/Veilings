@@ -1,0 +1,119 @@
+---- Minecraft Crash Report ----
+// This doesn't make any sense!
+
+Time: 12/2/25 9:48 AM
+Description: Ticking entity
+
+java.lang.NullPointerException: Ticking entity
+	at com.sirsquidly.veilings.common.entity.AbstractVeiling.setupAttributeDifferences(AbstractVeiling.java:676)
+	at com.sirsquidly.veilings.common.entity.AbstractVeiling.applyEntityAttributes(AbstractVeiling.java:117)
+	at net.minecraft.entity.EntityLivingBase.<init>(EntityLivingBase.java:165)
+	at net.minecraft.entity.EntityLiving.<init>(EntityLiving.java:90)
+	at net.minecraft.entity.EntityCreature.<init>(EntityCreature.java:21)
+	at net.minecraft.entity.EntityAgeable.<init>(EntityAgeable.java:27)
+	at net.minecraft.entity.passive.EntityAnimal.<init>(EntityAnimal.java:30)
+	at net.minecraft.entity.passive.EntityTameable.<init>(EntityTameable.java:33)
+	at com.sirsquidly.veilings.common.entity.AbstractVeiling.<init>(AbstractVeiling.java:88)
+	at com.sirsquidly.veilings.common.entity.EntityVeilingDeft.<init>(EntityVeilingDeft.java:16)
+	at com.sirsquidly.veilings.common.item.ItemVeilingEgg.getRandomVeiling(ItemVeilingEgg.java:65)
+	at com.sirsquidly.veilings.common.item.ItemVeilingEgg.onEntityItemUpdate(ItemVeilingEgg.java:45)
+	at net.minecraft.entity.item.EntityItem.onUpdate(EntityItem.java:87)
+	at net.minecraft.world.World.updateEntityWithOptionalForce(World.java:1996)
+	at net.minecraft.world.WorldServer.updateEntityWithOptionalForce(WorldServer.java:832)
+	at net.minecraft.world.World.updateEntity(World.java:1958)
+	at net.minecraft.world.World.updateEntities(World.java:1762)
+	at net.minecraft.world.WorldServer.updateEntities(WorldServer.java:613)
+	at net.minecraft.server.MinecraftServer.updateTimeLightAndEntities(MinecraftServer.java:767)
+	at net.minecraft.server.MinecraftServer.tick(MinecraftServer.java:668)
+	at net.minecraft.server.integrated.IntegratedServer.tick(IntegratedServer.java:185)
+	at net.minecraft.server.MinecraftServer.run(MinecraftServer.java:526)
+	at java.lang.Thread.run(Thread.java:748)
+
+
+A detailed walkthrough of the error, its code path and all known details is as follows:
+---------------------------------------------------------------------------------------
+
+-- Head --
+Thread: Server thread
+Stacktrace:
+	at com.sirsquidly.veilings.common.entity.AbstractVeiling.setupAttributeDifferences(AbstractVeiling.java:676)
+	at com.sirsquidly.veilings.common.entity.AbstractVeiling.applyEntityAttributes(AbstractVeiling.java:117)
+	at net.minecraft.entity.EntityLivingBase.<init>(EntityLivingBase.java:165)
+	at net.minecraft.entity.EntityLiving.<init>(EntityLiving.java:90)
+	at net.minecraft.entity.EntityCreature.<init>(EntityCreature.java:21)
+	at net.minecraft.entity.EntityAgeable.<init>(EntityAgeable.java:27)
+	at net.minecraft.entity.passive.EntityAnimal.<init>(EntityAnimal.java:30)
+	at net.minecraft.entity.passive.EntityTameable.<init>(EntityTameable.java:33)
+	at com.sirsquidly.veilings.common.entity.AbstractVeiling.<init>(AbstractVeiling.java:88)
+	at com.sirsquidly.veilings.common.entity.EntityVeilingDeft.<init>(EntityVeilingDeft.java:16)
+	at com.sirsquidly.veilings.common.item.ItemVeilingEgg.getRandomVeiling(ItemVeilingEgg.java:65)
+	at com.sirsquidly.veilings.common.item.ItemVeilingEgg.onEntityItemUpdate(ItemVeilingEgg.java:45)
+	at net.minecraft.entity.item.EntityItem.onUpdate(EntityItem.java:87)
+	at net.minecraft.world.World.updateEntityWithOptionalForce(World.java:1996)
+	at net.minecraft.world.WorldServer.updateEntityWithOptionalForce(WorldServer.java:832)
+	at net.minecraft.world.World.updateEntity(World.java:1958)
+
+-- Entity being ticked --
+Details:
+	Entity Type: minecraft:item (net.minecraft.entity.item.EntityItem)
+	Entity ID: 46
+	Entity Name: item.item.veilings.false_fetus
+	Entity's Exact location: -620.73, 62.53, 587.22
+	Entity's Block location: World: (-621,62,587), Chunk: (at 3,3,11 in -39,36; contains blocks -624,0,576 to -609,255,591), Region: (-2,1; contains chunks -64,32 to -33,63, blocks -1024,0,512 to -513,255,1023)
+	Entity's Momentum: -0.17, -0.36, 0.13
+	Entity's Passengers: []
+	Entity's Vehicle: ~~ERROR~~ NullPointerException: null
+Stacktrace:
+	at net.minecraft.world.World.updateEntities(World.java:1762)
+	at net.minecraft.world.WorldServer.updateEntities(WorldServer.java:613)
+
+-- Affected level --
+Details:
+	Level name: MUSHROOM
+	All players: 1 total; [EntityPlayerMP['Player190'/44, l='MUSHROOM', x=-618.00, y=63.00, z=585.06]]
+	Chunk stats: ServerChunkCache: 1107 Drop: 0
+	Level seed: 6183974285422561742
+	Level generator: ID 04 - customized, ver 0. Features enabled: true
+	Level generator options: {"coordinateScale":684.412,"heightScale":684.412,"lowerLimitScale":512.0,"upperLimitScale":512.0,"depthNoiseScaleX":200.0,"depthNoiseScaleZ":200.0,"depthNoiseScaleExponent":0.5,"mainNoiseScaleX":80.0,"mainNoiseScaleY":160.0,"mainNoiseScaleZ":80.0,"baseSize":8.5,"stretchY":12.0,"biomeDepthWeight":1.0,"biomeDepthOffset":0.0,"biomeScaleWeight":1.0,"biomeScaleOffset":0.0,"seaLevel":63,"useCaves":true,"useDungeons":true,"dungeonChance":8,"useStrongholds":true,"useVillages":true,"useMineShafts":true,"useTemples":true,"useMonuments":true,"useMansions":true,"useRavines":true,"useWaterLakes":true,"waterLakeChance":4,"useLavaLakes":true,"lavaLakeChance":80,"useLavaOceans":false,"fixedBiome":12,"biomeSize":4,"riverSize":4,"dirtSize":33,"dirtCount":10,"dirtMinHeight":0,"dirtMaxHeight":256,"gravelSize":33,"gravelCount":8,"gravelMinHeight":0,"gravelMaxHeight":256,"graniteSize":33,"graniteCount":10,"graniteMinHeight":0,"graniteMaxHeight":80,"dioriteSize":33,"dioriteCount":10,"dioriteMinHeight":0,"dioriteMaxHeight":80,"andesiteSize":33,"andesiteCount":10,"andesiteMinHeight":0,"andesiteMaxHeight":80,"coalSize":17,"coalCount":20,"coalMinHeight":0,"coalMaxHeight":128,"ironSize":9,"ironCount":20,"ironMinHeight":0,"ironMaxHeight":64,"goldSize":9,"goldCount":2,"goldMinHeight":0,"goldMaxHeight":32,"redstoneSize":8,"redstoneCount":8,"redstoneMinHeight":0,"redstoneMaxHeight":16,"diamondSize":8,"diamondCount":1,"diamondMinHeight":0,"diamondMaxHeight":16,"lapisSize":7,"lapisCount":1,"lapisCenterHeight":16,"lapisSpread":16}
+	Level spawn location: World: (-306,64,412), Chunk: (at 14,4,12 in -20,25; contains blocks -320,0,400 to -305,255,415), Region: (-1,0; contains chunks -32,0 to -1,31, blocks -512,0,0 to -1,255,511)
+	Level time: 2073710 game time, 41756 day time
+	Level dimension: 0
+	Level storage version: 0x04ABD - Anvil
+	Level weather: Rain time: 21697 (now: false), thunder time: 63467 (now: false)
+	Level game mode: Game mode: creative (ID 1). Hardcore: false. Cheats: true
+Stacktrace:
+	at net.minecraft.server.MinecraftServer.updateTimeLightAndEntities(MinecraftServer.java:767)
+	at net.minecraft.server.MinecraftServer.tick(MinecraftServer.java:668)
+	at net.minecraft.server.integrated.IntegratedServer.tick(IntegratedServer.java:185)
+	at net.minecraft.server.MinecraftServer.run(MinecraftServer.java:526)
+	at java.lang.Thread.run(Thread.java:748)
+
+-- System Details --
+Details:
+	Minecraft Version: 1.12.2
+	Operating System: Windows 10 (amd64) version 10.0
+	Java Version: 1.8.0_241, Oracle Corporation
+	Java VM Version: Java HotSpot(TM) 64-Bit Server VM (mixed mode), Oracle Corporation
+	Memory: 406829880 bytes (387 MB) / 1751121920 bytes (1670 MB) up to 7616856064 bytes (7264 MB)
+	JVM Flags: 0 total; 
+	IntCache: cache: 0, tcache: 0, allocated: 12, tallocated: 94
+	FML: MCP 9.42 Powered by Forge 14.23.5.2860 8 mods loaded, 8 mods active
+	States: 'U' = Unloaded 'L' = Loaded 'C' = Constructed 'H' = Pre-initialized 'I' = Initialized 'J' = Post-initialized 'A' = Available 'D' = Disabled 'E' = Errored
+
+	| State  | ID        | Version      | Source                                                     | Signature                                |
+	|:------ |:--------- |:------------ |:---------------------------------------------------------- |:---------------------------------------- |
+	| LCHIJA | minecraft | 1.12.2       | minecraft.jar                                              | None                                     |
+	| LCHIJA | mcp       | 9.42         | minecraft.jar                                              | None                                     |
+	| LCHIJA | FML       | 8.0.99.99    | forge-1.12.2-14.23.5.2860_mapped_stable_39-1.12-recomp.jar | None                                     |
+	| LCHIJA | forge     | 14.23.5.2860 | forge-1.12.2-14.23.5.2860_mapped_stable_39-1.12-recomp.jar | None                                     |
+	| LCHIJA | bookshelf | 2.3.590      | Bookshelf-1.12.2-2.3.590.jar                               | d476d1b22b218a10d845928d1665d45fce301b27 |
+	| LCHIJA | caliper   | 1.1.46       | caliper-266824-2810222_mapped_stable_39-1.12.jar           | None                                     |
+	| LCHIJA | jei       | 4.25.0       | had-enough-items-557549-4571247_mapped_stable_39-1.12.jar  | None                                     |
+	| LCHIJA | veilings  | 0.0.1        | creaturesfromdarkness-0.1.1.jar                            | None                                     |
+
+	Loaded coremods (and transformers): 
+	GL info: ~~ERROR~~ RuntimeException: No OpenGL context found in the current thread.
+	Profiler Position: N/A (disabled)
+	Player Count: 1 / 8; [EntityPlayerMP['Player190'/44, l='MUSHROOM', x=-618.00, y=63.00, z=585.06]]
+	Type: Integrated Server (map_client.txt)
+	Is Modded: Definitely; Client brand changed to 'fml,forge'

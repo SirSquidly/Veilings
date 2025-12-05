@@ -1,0 +1,17 @@
+[
+  {
+    "modid": "veilings",
+    "name": "Veilings",
+    "description": "Adds your new friendd",
+    "version": "${version}",
+    "mcversion": "${mcversion}",
+    "url": "modpage",
+    "authorList": [
+      "Sir Squidly"
+    ],
+    "credits": "The_Computerizer for their very nice Build template",
+    "logoFile": "modlogo.png",
+    "screenshots": [],
+    "dependencies": []
+  }
+]

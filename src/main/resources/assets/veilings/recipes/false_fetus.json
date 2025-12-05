@@ -1,0 +1,16 @@
+{
+  "type": "forge:ore_shaped",
+  "pattern": [
+    "wvw",
+    "vqv",
+    "wvw"
+  ],
+  "key": {
+    "v": { "item": "veilings:veiling_essence" },
+    "w": { "item": "veilings:veiling_weave" },
+    "q": { "item": "minecraft:quartz" }
+  },
+  "result": {
+    "item": "veilings:false_fetus"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "minecraft:story/iron_tools": {
+    "criteria": {
+      "iron_pickaxe": "2024-10-24 16:59:19 -0700"
+    },
+    "done": true
+  },
+  "minecraft:recipes/decorations/chest": {
+    "criteria": {
+      "has_lots_of_items": "2024-10-24 18:09:32 -0700"
+    },
+    "done": true
+  },
+  "minecraft:adventure/adventuring_time": {
+    "criteria": {
+      "ice_flats": "2024-10-24 16:59:19 -0700",
+      "savanna": "2024-10-24 16:59:26 -0700"
+    },
+    "done": false
+  }
+}

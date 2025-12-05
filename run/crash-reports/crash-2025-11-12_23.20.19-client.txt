@@ -1,0 +1,123 @@
+---- Minecraft Crash Report ----
+// I bet Cylons wouldn't have this problem.
+
+Time: 11/12/25 11:20 PM
+Description: Unexpected error
+
+java.lang.NullPointerException: Unexpected error
+	at com.sirsquidly.veilings.entity.EntityVeiling.processInteract(EntityVeiling.java:145)
+	at net.minecraft.entity.EntityLiving.processInitialInteract(EntityLiving.java:1227)
+	at net.minecraft.entity.player.EntityPlayer.interactOn(EntityPlayer.java:1199)
+	at net.minecraft.client.multiplayer.PlayerControllerMP.interactWithEntity(PlayerControllerMP.java:549)
+	at net.minecraft.client.Minecraft.rightClickMouse(Minecraft.java:1567)
+	at net.minecraft.client.Minecraft.processKeyBinds(Minecraft.java:2254)
+	at net.minecraft.client.Minecraft.runTickKeyboard(Minecraft.java:2020)
+	at net.minecraft.client.Minecraft.runTick(Minecraft.java:1808)
+	at net.minecraft.client.Minecraft.runGameLoop(Minecraft.java:1098)
+	at net.minecraft.client.Minecraft.run(Minecraft.java:398)
+	at net.minecraft.client.main.Main.main(Main.java:118)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at net.minecraft.launchwrapper.Launch.launch(Launch.java:135)
+	at net.minecraft.launchwrapper.Launch.main(Launch.java:28)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at net.minecraftforge.legacydev.Main.start(Main.java:91)
+	at net.minecraftforge.legacydev.MainClient.main(MainClient.java:29)
+
+
+A detailed walkthrough of the error, its code path and all known details is as follows:
+---------------------------------------------------------------------------------------
+
+-- Head --
+Thread: Client thread
+Stacktrace:
+	at com.sirsquidly.veilings.entity.EntityVeiling.processInteract(EntityVeiling.java:145)
+	at net.minecraft.entity.EntityLiving.processInitialInteract(EntityLiving.java:1227)
+	at net.minecraft.entity.player.EntityPlayer.interactOn(EntityPlayer.java:1199)
+	at net.minecraft.client.multiplayer.PlayerControllerMP.interactWithEntity(PlayerControllerMP.java:549)
+	at net.minecraft.client.Minecraft.rightClickMouse(Minecraft.java:1567)
+	at net.minecraft.client.Minecraft.processKeyBinds(Minecraft.java:2254)
+	at net.minecraft.client.Minecraft.runTickKeyboard(Minecraft.java:2020)
+
+-- Affected level --
+Details:
+	Level name: MpServer
+	All players: 1 total; [EntityPlayerSP['Player651'/38, l='MpServer', x=-378.25, y=67.00, z=655.87]]
+	Chunk stats: MultiplayerChunkCache: 625, 625
+	Level seed: 0
+	Level generator: ID 04 - customized, ver 0. Features enabled: false
+	Level generator options: 
+	Level spawn location: World: (-306,64,412), Chunk: (at 14,4,12 in -20,25; contains blocks -320,0,400 to -305,255,415), Region: (-1,0; contains chunks -32,0 to -1,31, blocks -512,0,0 to -1,255,511)
+	Level time: 246005 game time, 11755 day time
+	Level dimension: 0
+	Level storage version: 0x00000 - Unknown?
+	Level weather: Rain time: 0 (now: false), thunder time: 0 (now: false)
+	Level game mode: Game mode: creative (ID 1). Hardcore: false. Cheats: false
+	Forced entities: 61 total; [EntityMooshroom['Mooshroom'/262, l='MpServer', x=-299.20, y=75.00, z=729.52], EntityMooshroom['Mooshroom'/11, l='MpServer', x=-405.22, y=69.00, z=578.84], EntityMooshroom['Mooshroom'/278, l='MpServer', x=-303.33, y=72.00, z=618.35], EntityMooshroom['Mooshroom'/24, l='MpServer', x=-357.20, y=66.00, z=606.45], EntityWolf['Wolf'/25, l='MpServer', x=-364.70, y=66.00, z=601.30], EntityWolf['Wolf'/27, l='MpServer', x=-345.38, y=69.00, z=581.73], EntityMooshroom['Mooshroom'/28, l='MpServer', x=-320.23, y=70.00, z=605.48], EntityVeiling['entity.veilings.veiling.name'/418, l='MpServer', x=-378.61, y=67.00, z=657.30], EntityBat['Bat'/164, l='MpServer', x=-299.44, y=16.17, z=591.75], EntityMooshroom['Mooshroom'/165, l='MpServer', x=-387.81, y=70.00, z=710.56], EntityMooshroom['Mooshroom'/166, l='MpServer', x=-393.66, y=71.00, z=715.17], EntityMooshroom['Mooshroom'/167, l='MpServer', x=-400.17, y=72.00, z=729.45], EntityMooshroom['Mooshroom'/168, l='MpServer', x=-416.20, y=83.00, z=719.50], EntityVeiling['entity.veilings.veiling.name'/169, l='MpServer', x=-357.27, y=67.00, z=685.22], EntityVeiling['entity.veilings.veiling.name'/170, l='MpServer', x=-357.18, y=67.00, z=685.95], EntityVeiling['entity.veilings.veiling.name'/171, l='MpServer', x=-360.13, y=66.00, z=684.94], EntityVeiling['entity.veilings.veiling.name'/172, l='MpServer', x=-359.30, y=66.00, z=686.26], EntityVeiling['entity.veilings.veiling.name'/173, l='MpServer', x=-358.26, y=67.00, z=684.43], EntityBat['Bat'/174, l='MpServer', x=-418.25, y=40.10, z=729.75], EntityBat['Bat'/175, l='MpServer', x=-425.25, y=54.10, z=728.75], EntityBat['Bat'/177, l='MpServer', x=-413.00, y=47.10, z=718.25], EntityMooshroom['Mooshroom'/178, l='MpServer', x=-414.52, y=72.00, z=710.77], EntityMooshroom['Mooshroom'/179, l='MpServer', x=-407.20, y=77.00, z=716.52], EntityBat['Bat'/180, l='MpServer', x=-426.48, y=50.10, z=714.75], EntityWolf['Wolf'/181, l='MpServer', x=-363.18, y=67.00, z=643.85], EntityWolf['Wolf'/182, l='MpServer', x=-357.50, y=66.00, z=644.70], EntityBat['Bat'/183, l='MpServer', x=-408.98, y=48.01, z=709.30], EntityMooshroom['Mooshroom'/184, l='MpServer', x=-409.80, y=67.00, z=698.48], EntityWolf['Wolf'/185, l='MpServer', x=-363.82, y=65.00, z=636.17], EntityMooshroom['Mooshroom'/186, l='MpServer', x=-363.78, y=66.00, z=638.41], EntityMooshroom['Mooshroom'/187, l='MpServer', x=-405.72, y=64.00, z=679.82], EntityBat['Bat'/188, l='MpServer', x=-414.68, y=44.40, z=692.73], EntityMooshroom['Mooshroom'/189, l='MpServer', x=-420.85, y=66.00, z=689.77], EntityMooshroom['Mooshroom'/190, l='MpServer', x=-402.15, y=66.00, z=662.62], EntityBat['Bat'/191, l='MpServer', x=-365.39, y=22.89, z=611.25], EntityMooshroom['Mooshroom'/192, l='MpServer', x=-403.60, y=67.00, z=648.80], EntityMooshroom['Mooshroom'/193, l='MpServer', x=-412.53, y=66.00, z=626.85], EntityMooshroom['Mooshroom'/194, l='MpServer', x=-406.22, y=69.00, z=609.49], EntityMooshroom['Mooshroom'/86, l='MpServer', x=-456.25, y=72.00, z=716.82], EntityPlayerSP['Player651'/38, l='MpServer', x=-378.25, y=67.00, z=655.87], EntityBat['Bat'/92, l='MpServer', x=-420.98, y=45.08, z=687.98], EntityMooshroom['Mooshroom'/93, l='MpServer', x=-428.22, y=69.00, z=673.45], EntityWolf['Wolf'/94, l='MpServer', x=-429.27, y=72.00, z=663.48], EntityBat['Bat'/97, l='MpServer', x=-434.75, y=47.10, z=676.75], EntityMooshroom['Mooshroom'/98, l='MpServer', x=-438.65, y=74.00, z=677.66], EntityMooshroom['Mooshroom'/100, l='MpServer', x=-425.84, y=69.00, z=654.47], EntityMooshroom['Mooshroom'/101, l='MpServer', x=-428.83, y=68.00, z=646.21], EntityMooshroom['Mooshroom'/102, l='MpServer', x=-422.81, y=67.00, z=644.51], EntityMooshroom['Mooshroom'/230, l='MpServer', x=-358.14, y=71.00, z=733.15], EntityVeiling['entity.veilings.veiling.name'/231, l='MpServer', x=-345.50, y=68.00, z=705.50], EntityVeiling['entity.veilings.veiling.name'/232, l='MpServer', x=-347.58, y=68.00, z=704.45], EntityMooshroom['Mooshroom'/233, l='MpServer', x=-352.29, y=69.00, z=716.55], EntityBat['Bat'/234, l='MpServer', x=-347.25, y=17.10, z=674.75], EntityMooshroom['Mooshroom'/107, l='MpServer', x=-440.47, y=70.00, z=652.20], EntityMooshroom['Mooshroom'/109, l='MpServer', x=-434.19, y=70.00, z=625.54], EntityMooshroom['Mooshroom'/112, l='MpServer', x=-446.19, y=70.00, z=622.44], EntityBat['Bat'/245, l='MpServer', x=-353.56, y=24.63, z=663.39], EntityVeiling['entity.veilings.veiling.name'/246, l='MpServer', x=-345.34, y=66.00, z=659.92], EntityWolf['Wolf'/247, l='MpServer', x=-308.45, y=71.00, z=617.71], EntityBat['Bat'/248, l='MpServer', x=-337.51, y=34.43, z=660.50], EntityIronGolem['Iron Golem'/249, l='MpServer', x=-329.03, y=67.00, z=616.94]]
+	Retry entities: 0 total; []
+	Server brand: fml,forge
+	Server type: Integrated singleplayer server
+Stacktrace:
+	at net.minecraft.client.multiplayer.WorldClient.addWorldInfoToCrashReport(WorldClient.java:420)
+	at net.minecraft.client.Minecraft.addGraphicsAndWorldToCrashReport(Minecraft.java:2741)
+	at net.minecraft.client.Minecraft.run(Minecraft.java:427)
+	at net.minecraft.client.main.Main.main(Main.java:118)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at net.minecraft.launchwrapper.Launch.launch(Launch.java:135)
+	at net.minecraft.launchwrapper.Launch.main(Launch.java:28)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at net.minecraftforge.legacydev.Main.start(Main.java:91)
+	at net.minecraftforge.legacydev.MainClient.main(MainClient.java:29)
+
+-- System Details --
+Details:
+	Minecraft Version: 1.12.2
+	Operating System: Windows 10 (amd64) version 10.0
+	Java Version: 1.8.0_241, Oracle Corporation
+	Java VM Version: Java HotSpot(TM) 64-Bit Server VM (mixed mode), Oracle Corporation
+	Memory: 1573502920 bytes (1500 MB) / 2080374784 bytes (1984 MB) up to 7616856064 bytes (7264 MB)
+	JVM Flags: 0 total; 
+	IntCache: cache: 0, tcache: 0, allocated: 12, tallocated: 94
+	FML: MCP 9.42 Powered by Forge 14.23.5.2860 8 mods loaded, 8 mods active
+	States: 'U' = Unloaded 'L' = Loaded 'C' = Constructed 'H' = Pre-initialized 'I' = Initialized 'J' = Post-initialized 'A' = Available 'D' = Disabled 'E' = Errored
+
+	| State  | ID        | Version      | Source                                                     | Signature                                |
+	|:------ |:--------- |:------------ |:---------------------------------------------------------- |:---------------------------------------- |
+	| LCHIJA | minecraft | 1.12.2       | minecraft.jar                                              | None                                     |
+	| LCHIJA | mcp       | 9.42         | minecraft.jar                                              | None                                     |
+	| LCHIJA | FML       | 8.0.99.99    | forge-1.12.2-14.23.5.2860_mapped_stable_39-1.12-recomp.jar | None                                     |
+	| LCHIJA | forge     | 14.23.5.2860 | forge-1.12.2-14.23.5.2860_mapped_stable_39-1.12-recomp.jar | None                                     |
+	| LCHIJA | bookshelf | 2.3.590      | Bookshelf-1.12.2-2.3.590.jar                               | d476d1b22b218a10d845928d1665d45fce301b27 |
+	| LCHIJA | caliper   | 1.1.46       | caliper-266824-2810222_mapped_stable_39-1.12.jar           | None                                     |
+	| LCHIJA | jei       | 4.25.0       | had-enough-items-557549-4571247_mapped_stable_39-1.12.jar  | None                                     |
+	| LCHIJA | veilings  | 0.0.1        | creaturesfromdarkness-0.1.1.jar                            | None                                     |
+
+	Loaded coremods (and transformers): 
+	GL info: ' Vendor: 'NVIDIA Corporation' Version: '4.6.0 NVIDIA 580.88' Renderer: 'NVIDIA GeForce GTX 1070/PCIe/SSE2'
+	Launched Version: ${MC_VERSION}
+	LWJGL: 2.9.4
+	OpenGL: NVIDIA GeForce GTX 1070/PCIe/SSE2 GL version 4.6.0 NVIDIA 580.88, NVIDIA Corporation
+	GL Caps: Using GL 1.3 multitexturing.
+Using GL 1.3 texture combiners.
+Using framebuffer objects because OpenGL 3.0 is supported and separate blending is supported.
+Shaders are available because OpenGL 2.1 is supported.
+VBOs are available because OpenGL 1.5 is supported.
+
+	Using VBOs: Yes
+	Is Modded: Definitely; Client brand changed to 'fml,forge'
+	Type: Client (map_client.txt)
+	Resource Packs: 
+	Current Language: English (US)
+	Profiler Position: N/A (disabled)
+	CPU: 16x AMD Ryzen 7 5800X 8-Core Processor 

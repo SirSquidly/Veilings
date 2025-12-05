@@ -1,0 +1,16 @@
+{
+  "type": "forge:ore_shaped",
+  "pattern": [
+    " w ",
+    "svs"
+  ],
+  "key": {
+    "w": { "item": "minecraft:wool", "data": 0 },
+    "v": { "item": "veilings:veiling_essence" },
+    "s": { "item": "minecraft:string" }
+  },
+  "result": {
+    "item": "veilings:veiling_weave",
+    "count": 3
+  }
+}

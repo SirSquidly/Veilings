@@ -1,0 +1,14 @@
+{
+  "type": "forge:ore_shaped",
+  "pattern": [
+    "pvp",
+    " v "
+  ],
+  "key": {
+    "p": { "item": "minecraft:paper" },
+    "v": { "item": "veilings:veiling_essence" }
+  },
+  "result": {
+    "item": "veilings:mask_dramatist"
+  }
+}

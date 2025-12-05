@@ -1,0 +1,27 @@
+{
+  "minecraft:husbandry/balanced_diet": {
+    "criteria": {
+      "cooked_beef": "2025-04-28 18:31:38 -0700"
+    },
+    "done": false
+  },
+  "minecraft:husbandry/root": {
+    "criteria": {
+      "consumed_item": "2025-04-28 18:31:38 -0700"
+    },
+    "done": true
+  },
+  "minecraft:adventure/root": {
+    "criteria": {
+      "killed_something": "2025-04-28 18:18:41 -0700"
+    },
+    "done": true
+  },
+  "minecraft:adventure/adventuring_time": {
+    "criteria": {
+      "mushroom_island_shore": "2025-04-28 18:18:14 -0700",
+      "mushroom_island": "2025-04-28 18:18:17 -0700"
+    },
+    "done": false
+  }
+}

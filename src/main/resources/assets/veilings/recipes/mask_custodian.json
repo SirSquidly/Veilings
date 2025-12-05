@@ -1,0 +1,14 @@
+{
+  "type": "forge:ore_shaped",
+  "pattern": [
+    "bvb",
+    " v "
+  ],
+  "key": {
+    "b": { "item": "minecraft:bone" },
+    "v": { "item": "veilings:veiling_essence" }
+  },
+  "result": {
+    "item": "veilings:mask_custodian"
+  }
+}

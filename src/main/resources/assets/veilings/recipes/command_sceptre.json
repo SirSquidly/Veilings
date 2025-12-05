@@ -1,0 +1,17 @@
+{
+  "type": "forge:ore_shaped",
+  "pattern": [
+    " vq",
+    "vgv",
+    "sv "
+  ],
+  "key": {
+    "v": { "item": "veilings:veiling_essence" },
+    "q": { "item": "minecraft:quartz" },
+    "g": { "item": "minecraft:gold_ingot" },
+    "s": { "item": "minecraft:stick" }
+  },
+  "result": {
+    "item": "veilings:command_sceptre"
+  }
+}

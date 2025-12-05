@@ -1,0 +1,17 @@
+{
+  "type": "forge:ore_shaped",
+  "pattern": [
+    "scs",
+    "vvv",
+    "ece"
+  ],
+  "key": {
+    "s": { "item": "minecraft:sugar" },
+    "c": { "item": "minecraft:dye", "data": 3 },
+    "v": { "item": "veilings:veiling_essence" },
+    "e": { "item": "minecraft:egg" }
+  },
+  "result": {
+    "item": "veilings:veiling_tiramisu"
+  }
+}

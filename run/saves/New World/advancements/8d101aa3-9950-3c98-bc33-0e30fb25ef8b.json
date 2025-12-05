@@ -1,0 +1,14 @@
+{
+  "minecraft:story/iron_tools": {
+    "criteria": {
+      "iron_pickaxe": "2024-10-23 19:56:42 -0700"
+    },
+    "done": true
+  },
+  "minecraft:adventure/adventuring_time": {
+    "criteria": {
+      "ice_flats": "2024-10-23 19:56:42 -0700"
+    },
+    "done": false
+  }
+}

@@ -1,0 +1,122 @@
+{
+	"entity.veiling.agree":
+	{
+		"category": "neutral",
+		"subtitle": "subtitle.veilings.entity.veiling.agree",
+		"sounds": [ "veilings:entity/veiling/agrees1" ]
+	},
+	"entity.veiling.ambient":
+	{
+		"category": "neutral",
+		"subtitle": "subtitle.veilings.entity.veiling.ambient",
+		"sounds": [ "veilings:entity/veiling/ambient1", "veilings:entity/veiling/ambient2", "veilings:entity/veiling/ambient3" ]
+	},
+	"entity.veiling.ambient_happy":
+	{
+		"category": "neutral",
+		"subtitle": "subtitle.veilings.entity.veiling.ambient_happy",
+		"sounds": [ "veilings:entity/veiling/ambient_happy1", "veilings:entity/veiling/ambient_happy2", "veilings:entity/veiling/ambient_happy3" ]
+	},
+	"entity.veiling.ambient_sad":
+	{
+		"category": "neutral",
+		"subtitle": "subtitle.veilings.entity.veiling.ambient_sad",
+		"sounds": [ "veilings:entity/veiling/ambient_sad1", "veilings:entity/veiling/ambient_sad2", "veilings:entity/veiling/ambient_sad3" ]
+	},
+	"entity.veiling.death":
+	{
+		"category": "neutral",
+		"subtitle": "subtitle.veilings.entity.veiling.death",
+		"sounds": [ "veilings:entity/veiling/death1" ]
+	},
+	"entity.veiling.eat":
+	{
+		"category": "neutral",
+		"subtitle": "subtitle.veilings.entity.veiling.eat",
+		"sounds": [ "veilings:entity/veiling/eat1", "veilings:entity/veiling/eat2" ]
+	},
+	"entity.veiling.hurt":
+	{
+		"category": "neutral",
+		"subtitle": "subtitle.veilings.entity.veiling.hurt",
+		"sounds": [ "veilings:entity/veiling/hurt1", "veilings:entity/veiling/hurt2", "veilings:entity/veiling/hurt3" ]
+	},
+	"entity.veiling.mood_decrease":
+	{
+		"category": "neutral",
+		"subtitle": "subtitle.veilings.entity.veiling.mood_decrease",
+		"sounds": [ "veilings:entity/veiling/mood_decrease1"]
+	},
+	"entity.veiling.mood_increase":
+	{
+		"category": "neutral",
+		"subtitle": "subtitle.veilings.entity.veiling.mood_increase",
+		"sounds": [ "veilings:entity/veiling/mood_increase1"]
+	},
+	"entity.veiling.panic":
+	{
+		"category": "neutral",
+		"subtitle": "subtitle.veilings.entity.veiling.panic",
+		"sounds": [ "veilings:entity/veiling/panic1" ]
+	},
+	"entity.veiling.shoot":
+	{
+		"category": "neutral",
+		"subtitle": "subtitle.veilings.entity.veiling.shoot",
+		"sounds": [ "veilings:item/spirit_dagger/summon1"]
+	},
+	"entity.veiling.tantrum":
+	{
+		"category": "neutral",
+		"subtitle": "subtitle.veilings.entity.veiling.tantrum",
+		"sounds": [ "veilings:entity/veiling/tantrum1", "veilings:entity/veiling/tantrum2" ]
+	},
+	"item.command_sceptre.use":
+	{
+		"category": "player",
+		"subtitle": "subtitle.veilings.item.command_sceptre.use",
+		"sounds": [ "veilings:item/attack_sceptre_use"]
+	},
+	"item.calling_bell.use1":
+	{
+		"category": "player",
+		"subtitle": "subtitle.veilings.item.calling_bell.use",
+		"sounds": [ "veilings:item/calling_bell/calling_bell1"]
+	},
+	"item.calling_bell.use2":
+	{
+		"category": "player",
+		"subtitle": "subtitle.veilings.item.calling_bell.use",
+		"sounds": [ "veilings:item/calling_bell/calling_bell2"]
+	},
+	"item.calling_bell.use3":
+	{
+		"category": "player",
+		"subtitle": "subtitle.veilings.item.calling_bell.use",
+		"sounds": [ "veilings:item/calling_bell/calling_bell3"]
+	},
+	"item.spirit_dagger.use":
+	{
+		"category": "player",
+		"subtitle": "subtitle.veilings.item.spirit_dagger.use",
+		"sounds": [ "veilings:item/spirit_dagger/summon1"]
+	},
+	"item.spirit_dagger.shoot":
+	{
+		"category": "neutral",
+		"subtitle": "subtitle.veilings.item.spirit_dagger.shoot",
+		"sounds": [ "veilings:item/spirit_dagger/shoot1", "veilings:item/spirit_dagger/shoot2", "veilings:item/spirit_dagger/shoot3", "veilings:item/spirit_dagger/shoot4"]
+	},
+	"item.veiling_outfit.equip":
+	{
+		"category": "player",
+		"subtitle": "subtitle.veilings.item.veiling_outfit.equip",
+		"sounds": [ "veilings:item/veiling_outfit/equip1", "veilings:item/veiling_outfit/equip2" ]
+	},
+	"item.veiling_outfit.unequip_shears":
+	{
+		"category": "player",
+		"subtitle": "subtitle.veilings.item.veiling_outfit.unequip_shears",
+		"sounds": [ "veilings:item/veiling_outfit/unequip_shears1", "veilings:item/veiling_outfit/unequip_shears2" ]
+	}
+}   

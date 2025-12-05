@@ -1,0 +1,97 @@
+---- Minecraft Crash Report ----
+// Hey, that tickles! Hehehe!
+
+Time: 11/3/24 4:13 PM
+Description: Ticking entity
+
+java.lang.NoSuchFieldError: droppedExperience
+	at com.sirsquidly.veilings.entity.EntityShadow.<init>(EntityShadow.java:41)
+	at com.sirsquidly.veilings.entity.EntityNightmare.onUpdate(EntityNightmare.java:161)
+	at net.minecraft.world.World.updateEntityWithOptionalForce(World.java:1996)
+	at net.minecraft.world.WorldServer.updateEntityWithOptionalForce(WorldServer.java:832)
+	at net.minecraft.world.World.updateEntity(World.java:1958)
+	at net.minecraft.world.World.updateEntities(World.java:1762)
+	at net.minecraft.world.WorldServer.updateEntities(WorldServer.java:613)
+	at net.minecraft.server.MinecraftServer.updateTimeLightAndEntities(MinecraftServer.java:767)
+	at net.minecraft.server.MinecraftServer.tick(MinecraftServer.java:668)
+	at net.minecraft.server.integrated.IntegratedServer.tick(IntegratedServer.java:185)
+	at net.minecraft.server.MinecraftServer.run(MinecraftServer.java:526)
+	at java.lang.Thread.run(Thread.java:748)
+
+
+A detailed walkthrough of the error, its code path and all known details is as follows:
+---------------------------------------------------------------------------------------
+
+-- Head --
+Thread: Server thread
+Stacktrace:
+	at com.sirsquidly.veilings.entity.EntityShadow.<init>(EntityShadow.java:41)
+	at com.sirsquidly.veilings.entity.EntityNightmare.onUpdate(EntityNightmare.java:161)
+	at net.minecraft.world.World.updateEntityWithOptionalForce(World.java:1996)
+	at net.minecraft.world.WorldServer.updateEntityWithOptionalForce(WorldServer.java:832)
+	at net.minecraft.world.World.updateEntity(World.java:1958)
+
+-- Entity being ticked --
+Details:
+	Entity Type: creaturesfromdarkness:nightmare (com.sirsquidly.veilings.entity.EntityNightmare)
+	Entity ID: 4616
+	Entity Name: Nightmare
+	Entity's Exact location: -288.92, 63.00, -68.44
+	Entity's Block location: World: (-289,63,-69), Chunk: (at 15,3,11 in -19,-5; contains blocks -304,0,-80 to -289,255,-65), Region: (-1,-1; contains chunks -32,-32 to -1,-1, blocks -512,0,-512 to -1,255,-1)
+	Entity's Momentum: 0.17, -0.08, -0.02
+	Entity's Passengers: []
+	Entity's Vehicle: ~~ERROR~~ NullPointerException: null
+Stacktrace:
+	at net.minecraft.world.World.updateEntities(World.java:1762)
+	at net.minecraft.world.WorldServer.updateEntities(WorldServer.java:613)
+
+-- Affected level --
+Details:
+	Level name: New World
+	All players: 1 total; [EntityPlayerMP['Player154'/4662, l='New World', x=-262.50, y=64.00, z=-72.27]]
+	Chunk stats: ServerChunkCache: 751 Drop: 0
+	Level seed: 6577066951627599400
+	Level generator: ID 00 - default, ver 1. Features enabled: true
+	Level generator options: 
+	Level spawn location: World: (-148,64,97), Chunk: (at 12,4,1 in -10,6; contains blocks -160,0,96 to -145,255,111), Region: (-1,0; contains chunks -32,0 to -1,31, blocks -512,0,0 to -1,255,511)
+	Level time: 644882 game time, 90280 day time
+	Level dimension: 0
+	Level storage version: 0x04ABD - Anvil
+	Level weather: Rain time: 135801 (now: false), thunder time: 30154 (now: false)
+	Level game mode: Game mode: creative (ID 1). Hardcore: false. Cheats: true
+Stacktrace:
+	at net.minecraft.server.MinecraftServer.updateTimeLightAndEntities(MinecraftServer.java:767)
+	at net.minecraft.server.MinecraftServer.tick(MinecraftServer.java:668)
+	at net.minecraft.server.integrated.IntegratedServer.tick(IntegratedServer.java:185)
+	at net.minecraft.server.MinecraftServer.run(MinecraftServer.java:526)
+	at java.lang.Thread.run(Thread.java:748)
+
+-- System Details --
+Details:
+	Minecraft Version: 1.12.2
+	Operating System: Windows 10 (amd64) version 10.0
+	Java Version: 1.8.0_241, Oracle Corporation
+	Java VM Version: Java HotSpot(TM) 64-Bit Server VM (mixed mode), Oracle Corporation
+	Memory: 520426088 bytes (496 MB) / 1538785280 bytes (1467 MB) up to 7616856064 bytes (7264 MB)
+	JVM Flags: 0 total; 
+	IntCache: cache: 0, tcache: 0, allocated: 12, tallocated: 94
+	FML: MCP 9.42 Powered by Forge 14.23.5.2860 8 mods loaded, 8 mods active
+	States: 'U' = Unloaded 'L' = Loaded 'C' = Constructed 'H' = Pre-initialized 'I' = Initialized 'J' = Post-initialized 'A' = Available 'D' = Disabled 'E' = Errored
+
+	| State  | ID                    | Version      | Source                                                     | Signature                                |
+	|:------ |:--------------------- |:------------ |:---------------------------------------------------------- |:---------------------------------------- |
+	| LCHIJA | minecraft             | 1.12.2       | minecraft.jar                                              | None                                     |
+	| LCHIJA | mcp                   | 9.42         | minecraft.jar                                              | None                                     |
+	| LCHIJA | FML                   | 8.0.99.99    | forge-1.12.2-14.23.5.2860_mapped_stable_39-1.12-recomp.jar | None                                     |
+	| LCHIJA | forge                 | 14.23.5.2860 | forge-1.12.2-14.23.5.2860_mapped_stable_39-1.12-recomp.jar | None                                     |
+	| LCHIJA | bookshelf             | 2.3.590      | Bookshelf-1.12.2-2.3.590.jar                               | d476d1b22b218a10d845928d1665d45fce301b27 |
+	| LCHIJA | caliper               | 1.1.46       | caliper-266824-2810222_mapped_stable_39-1.12.jar           | None                                     |
+	| LCHIJA | jei                   | 4.25.0       | had-enough-items-557549-4571247_mapped_stable_39-1.12.jar  | None                                     |
+	| LCHIJA | creaturesfromdarkness | 0.0.1        | creaturesfromdarkness-0.0.1+1.12.2.jar                     | None                                     |
+
+	Loaded coremods (and transformers): 
+	GL info: ~~ERROR~~ RuntimeException: No OpenGL context found in the current thread.
+	Profiler Position: N/A (disabled)
+	Player Count: 1 / 8; [EntityPlayerMP['Player154'/4662, l='New World', x=-262.50, y=64.00, z=-72.27]]
+	Type: Integrated Server (map_client.txt)
+	Is Modded: Definitely; Client brand changed to 'fml,forge'

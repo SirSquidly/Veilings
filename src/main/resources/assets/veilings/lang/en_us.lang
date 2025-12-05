@@ -1,0 +1,88 @@
+death.attack.creaturesfromdarkness.nightmare=%1$s succumbed to the darkness
+death.attack.creaturesfromdarkness.nightmare.item=%1$s succumbed to the darkness
+description.creaturesfromdarkness.nightmare_spine.name=Inflicts a Nightmare
+
+
+description.veilings.calling_bell.commandMode0=Mode - Follow
+description.veilings.calling_bell.commandMode1=Mode - Wander
+description.veilings.calling_bell.commandMode2=Mode - Stay
+description.veilings.calling_bell.desc1=
+description.veilings.calling_bell.desc2=Changes the command mode of all Veilings nearby.
+description.veilings.calling_bell.desc3=Sneak use to change command mode.
+description.veilings.command_sceptre.desc1=
+description.veilings.command_sceptre.desc2=Controls the movement and actions of nearby Veilings.
+description.veilings.command_sceptre.desc3=Sneak use to change targeted Veiling type.
+description.veilings.command_sceptre.veilingType-1=Mode - All Types
+description.veilings.command_sceptre.veilingType0=Mode - Defts
+description.veilings.command_sceptre.veilingType1=Mode - Custodians
+description.veilings.command_sceptre.veilingType2=Mode - Dramatists
+description.veilings.false_egg.desc1=Among mystic incantations, there is one phrase you can make out:
+description.veilings.false_egg.desc2="Just add water!"
+description.veilings.mask_deft.desc1=Transforms your Veiling into a Veiling Deft.
+description.veilings.mask_deft.desc2=Defts can wield weapons.
+description.veilings.mask_custodian.desc1=Transforms your Veiling into a Veiling Custodian.
+description.veilings.mask_custodian.desc2=Custodians grant Healing and Resistance to nearby Veilings.
+description.veilings.mask_dramatist.desc1=Transforms your Veiling into a Veiling Dramatist.
+description.veilings.mask_dramatist.desc2=Dramatists will shoot spirit daggers.
+
+
+description.veilings.veiling_tiramisu.desc1=Permanently increases Veiling Health by 2,
+description.veilings.veiling_tiramisu.desc2=up to 30 max.
+description.veilings.veiling_tiramisu.desc3=
+description.veilings.veiling_tiramisu.effect=Absorption (%s)
+
+
+entity.veilings.veiling_custodian.name=Veiling Custodian
+entity.veilings.veiling_deft.name=Veiling Deft
+entity.veilings.veiling_dramatist.name=Veiling Dramatist
+entity.veilings.wicked_veiling_custodian.name=Wicked Veiling Custodian
+entity.veilings.wicked_veiling_deft.name=Wicked Veiling Deft
+entity.veilings.wicked_veiling_dramatist.name=Wicked Veiling Dramatist
+
+item.veilings.calling_bell.name=Calling Bell
+item.veilings.command_sceptre.name=Command Sceptre
+item.veilings.false_fetus.name=False Fetus
+item.veilings.mask_deft.name=Veiling Deft Mask
+item.veilings.mask_custodian.name=Veiling Custodian Mask
+item.veilings.mask_dramatist.name=Veiling Dramatist Mask
+item.veilings.spirit_dagger.name=Spirit Dagger
+item.veilings.veiling_essence.name=Veiling Essence
+item.veilings.veiling_weave.name=Veiling Weave
+item.veilings.veiling_tiramisu.name=Veiling Tiramisu
+item.veilings.veiling_outfit_armor.name=Veiling Armor Outfit
+item.veilings.veiling_outfit_jester.name=Veiling Jester Outfit
+item.veilings.veiling_outfit_maid.name=Veiling Maid Outfit
+item.veilings.veiling_outfit_poncho.name=Veiling Poncho Outfit
+item.veilings.veiling_outfit_vest.name=Veiling Vest Outfit
+item.veilings.veiling_outfit_wraps.name=Veiling Wraps Outfit
+
+message.veilings.attack_sceptre.set_mode_-1=Control All Types
+message.veilings.attack_sceptre.set_mode_0=Control Defts
+message.veilings.attack_sceptre.set_mode_1=Control Custodians
+message.veilings.attack_sceptre.set_mode_2=Control Dramatists
+
+message.veilings.calling_bell.set_mode_0=Follow
+message.veilings.calling_bell.set_mode_1=Wander
+message.veilings.calling_bell.set_mode_2=Stay
+
+
+subtitle.veilings.item.command_sceptre.use=Sceptre rattles
+subtitle.veilings.item.calling_bell.use=Calling Bell rings
+subtitle.veilings.item.veiling_outfit.equip=Veiling Outfit equips
+subtitle.veilings.item.veiling_outfit.unequip_shears=Veiling Outfit snips away
+
+subtitle.veilings.entity.veiling.agree=Veiling agrees
+subtitle.veilings.entity.veiling.ambient_happy=Veiling banters
+subtitle.veilings.entity.veiling.ambient=Veiling nods
+subtitle.veilings.entity.veiling.ambient_sad=Veiling vexes
+subtitle.veilings.entity.veiling.death=Veiling dies
+subtitle.veilings.entity.veiling.eat=Veiling eats
+subtitle.veilings.entity.veiling.hurt=Veiling hurts
+subtitle.veilings.entity.veiling.mood_increase=Veiling gets happier
+subtitle.veilings.entity.veiling.mood_decrease=Veiling gets sadder
+subtitle.veilings.entity.veiling.panic=Veiling panics
+subtitle.veilings.entity.veiling.shoot=Veiling casts Spirit Dagger
+subtitle.veilings.entity.veiling.tantrum=Veiling weeps hysterically
+
+subtitle.veilings.item.spirit_dagger.use=Player summons Spirit Dagger
+subtitle.veilings.item.spirit_dagger.shoot=Spirit Dagger flies

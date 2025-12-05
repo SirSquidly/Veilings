@@ -1,0 +1,14 @@
+{
+  "type": "forge:ore_shaped",
+  "pattern": [
+    "ivi",
+    " v "
+  ],
+  "key": {
+    "i": { "item": "minecraft:iron_nugget" },
+    "v": { "item": "veilings:veiling_essence" }
+  },
+  "result": {
+    "item": "veilings:mask_deft"
+  }
+}

@@ -1,0 +1,133 @@
+---- Minecraft Crash Report ----
+// I let you down. Sorry :(
+
+Time: 11/21/25 4:29 PM
+Description: Ticking entity
+
+java.lang.NullPointerException: Ticking entity
+	at com.sirsquidly.veilings.common.entity.EntitySpiritDagger.onImpact(EntitySpiritDagger.java:112)
+	at net.minecraft.entity.projectile.EntityThrowable.onUpdate(EntityThrowable.java:249)
+	at com.sirsquidly.veilings.common.entity.EntitySpiritDagger.onUpdate(EntitySpiritDagger.java:56)
+	at net.minecraft.world.World.updateEntityWithOptionalForce(World.java:1996)
+	at net.minecraft.world.World.updateEntity(World.java:1958)
+	at net.minecraft.world.World.updateEntities(World.java:1762)
+	at net.minecraft.client.Minecraft.runTick(Minecraft.java:1847)
+	at net.minecraft.client.Minecraft.runGameLoop(Minecraft.java:1098)
+	at net.minecraft.client.Minecraft.run(Minecraft.java:398)
+	at net.minecraft.client.main.Main.main(Main.java:118)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at net.minecraft.launchwrapper.Launch.launch(Launch.java:135)
+	at net.minecraft.launchwrapper.Launch.main(Launch.java:28)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at net.minecraftforge.legacydev.Main.start(Main.java:91)
+	at net.minecraftforge.legacydev.MainClient.main(MainClient.java:29)
+
+
+A detailed walkthrough of the error, its code path and all known details is as follows:
+---------------------------------------------------------------------------------------
+
+-- Head --
+Thread: Client thread
+Stacktrace:
+	at com.sirsquidly.veilings.common.entity.EntitySpiritDagger.onImpact(EntitySpiritDagger.java:112)
+	at net.minecraft.entity.projectile.EntityThrowable.onUpdate(EntityThrowable.java:249)
+	at com.sirsquidly.veilings.common.entity.EntitySpiritDagger.onUpdate(EntitySpiritDagger.java:56)
+	at net.minecraft.world.World.updateEntityWithOptionalForce(World.java:1996)
+	at net.minecraft.world.World.updateEntity(World.java:1958)
+
+-- Entity being ticked --
+Details:
+	Entity Type: veilings:spirit_dagger (com.sirsquidly.veilings.common.entity.EntitySpiritDagger)
+	Entity ID: 3748
+	Entity Name: entity.veilings.spirit_dagger.name
+	Entity's Exact location: -600.82, 65.51, 564.58
+	Entity's Block location: World: (-601,65,564), Chunk: (at 7,4,4 in -38,35; contains blocks -608,0,560 to -593,255,575), Region: (-2,1; contains chunks -64,32 to -33,63, blocks -1024,0,512 to -513,255,1023)
+	Entity's Momentum: 0.31, -0.20, -0.75
+	Entity's Passengers: []
+	Entity's Vehicle: ~~ERROR~~ NullPointerException: null
+Stacktrace:
+	at net.minecraft.world.World.updateEntities(World.java:1762)
+
+-- Affected level --
+Details:
+	Level name: MpServer
+	All players: 1 total; [EntityPlayerSP['Player211'/52, l='MpServer', x=-603.21, y=65.38, z=564.14]]
+	Chunk stats: MultiplayerChunkCache: 625, 625
+	Level seed: 0
+	Level generator: ID 04 - customized, ver 0. Features enabled: false
+	Level generator options: 
+	Level spawn location: World: (-306,64,412), Chunk: (at 14,4,12 in -20,25; contains blocks -320,0,400 to -305,255,415), Region: (-1,0; contains chunks -32,0 to -1,31, blocks -512,0,0 to -1,255,511)
+	Level time: 1091093 game time, 14942 day time
+	Level dimension: 0
+	Level storage version: 0x00000 - Unknown?
+	Level weather: Rain time: 0 (now: false), thunder time: 0 (now: false)
+	Level game mode: Game mode: creative (ID 1). Hardcore: false. Cheats: false
+	Forced entities: 29 total; [EntityBat['Bat'/3343, l='MpServer', x=-528.63, y=26.10, z=488.11], EntityBat['Bat'/2000, l='MpServer', x=-526.63, y=45.01, z=510.63], EntityBat['Bat'/3285, l='MpServer', x=-576.97, y=50.05, z=546.87], EntityVeilingDramatist['entity.veilings.veiling_dramatist.name'/3670, l='MpServer', x=-600.68, y=64.00, z=564.36], EntityBat['Bat'/3607, l='MpServer', x=-649.69, y=27.05, z=581.63], EntityBat['Bat'/2906, l='MpServer', x=-525.25, y=25.10, z=488.25], EntityBat['Bat'/3485, l='MpServer', x=-525.75, y=21.03, z=611.66], EntityMooshroom['Mooshroom'/95, l='MpServer', x=-550.84, y=67.00, z=508.60], EntityBat['Bat'/3487, l='MpServer', x=-525.51, y=42.08, z=515.55], EntityMooshroom['Mooshroom'/96, l='MpServer', x=-566.14, y=67.00, z=502.75], EntityMooshroom['Mooshroom'/97, l='MpServer', x=-566.18, y=66.00, z=512.43], EntityMooshroom['Mooshroom'/98, l='MpServer', x=-560.50, y=67.00, z=498.23], EntityMooshroom['Mooshroom'/99, l='MpServer', x=-556.20, y=64.00, z=530.83], EntitySpiritDagger['entity.veilings.spirit_dagger.name'/3748, l='MpServer', x=-600.82, y=65.51, z=564.58], EntityBat['Bat'/3048, l='MpServer', x=-581.56, y=47.91, z=544.32], EntityMooshroom['Mooshroom'/106, l='MpServer', x=-528.76, y=66.00, z=511.84], EntityMooshroom['Mooshroom'/3370, l='MpServer', x=-586.13, y=63.00, z=585.04], EntityMooshroom['Mooshroom'/3372, l='MpServer', x=-592.18, y=64.00, z=591.36], EntityMooshroom['Mooshroom'/110, l='MpServer', x=-526.51, y=65.00, z=514.82], EntityMooshroom['Mooshroom'/3377, l='MpServer', x=-597.65, y=64.00, z=576.85], EntityMooshroom['Mooshroom'/115, l='MpServer', x=-531.19, y=64.00, z=526.86], EntityMooshroom['Mooshroom'/3379, l='MpServer', x=-589.84, y=64.00, z=590.24], EntityMooshroom['Mooshroom'/116, l='MpServer', x=-527.55, y=65.00, z=543.28], EntityZombie['Zombie'/3381, l='MpServer', x=-590.80, y=64.00, z=573.80], EntityPlayerSP['Player211'/52, l='MpServer', x=-603.21, y=65.38, z=564.14], EntityZombie['Zombie'/3383, l='MpServer', x=-591.32, y=64.00, z=575.66], EntityZombie['Zombie'/3385, l='MpServer', x=-596.23, y=64.00, z=574.54], EntityBat['Bat'/2940, l='MpServer', x=-560.20, y=52.04, z=567.38], EntityBat['Bat'/2941, l='MpServer', x=-568.32, y=48.10, z=565.20]]
+	Retry entities: 0 total; []
+	Server brand: fml,forge
+	Server type: Integrated singleplayer server
+Stacktrace:
+	at net.minecraft.client.multiplayer.WorldClient.addWorldInfoToCrashReport(WorldClient.java:420)
+	at net.minecraft.client.Minecraft.addGraphicsAndWorldToCrashReport(Minecraft.java:2741)
+	at net.minecraft.client.Minecraft.run(Minecraft.java:419)
+	at net.minecraft.client.main.Main.main(Main.java:118)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at net.minecraft.launchwrapper.Launch.launch(Launch.java:135)
+	at net.minecraft.launchwrapper.Launch.main(Launch.java:28)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at net.minecraftforge.legacydev.Main.start(Main.java:91)
+	at net.minecraftforge.legacydev.MainClient.main(MainClient.java:29)
+
+-- System Details --
+Details:
+	Minecraft Version: 1.12.2
+	Operating System: Windows 10 (amd64) version 10.0
+	Java Version: 1.8.0_241, Oracle Corporation
+	Java VM Version: Java HotSpot(TM) 64-Bit Server VM (mixed mode), Oracle Corporation
+	Memory: 179671576 bytes (171 MB) / 1347420160 bytes (1285 MB) up to 7616856064 bytes (7264 MB)
+	JVM Flags: 0 total; 
+	IntCache: cache: 0, tcache: 8, allocated: 20, tallocated: 86
+	FML: MCP 9.42 Powered by Forge 14.23.5.2860 8 mods loaded, 8 mods active
+	States: 'U' = Unloaded 'L' = Loaded 'C' = Constructed 'H' = Pre-initialized 'I' = Initialized 'J' = Post-initialized 'A' = Available 'D' = Disabled 'E' = Errored
+
+	| State  | ID        | Version      | Source                                                     | Signature                                |
+	|:------ |:--------- |:------------ |:---------------------------------------------------------- |:---------------------------------------- |
+	| LCHIJA | minecraft | 1.12.2       | minecraft.jar                                              | None                                     |
+	| LCHIJA | mcp       | 9.42         | minecraft.jar                                              | None                                     |
+	| LCHIJA | FML       | 8.0.99.99    | forge-1.12.2-14.23.5.2860_mapped_stable_39-1.12-recomp.jar | None                                     |
+	| LCHIJA | forge     | 14.23.5.2860 | forge-1.12.2-14.23.5.2860_mapped_stable_39-1.12-recomp.jar | None                                     |
+	| LCHIJA | bookshelf | 2.3.590      | Bookshelf-1.12.2-2.3.590.jar                               | d476d1b22b218a10d845928d1665d45fce301b27 |
+	| LCHIJA | caliper   | 1.1.46       | caliper-266824-2810222_mapped_stable_39-1.12.jar           | None                                     |
+	| LCHIJA | jei       | 4.25.0       | had-enough-items-557549-4571247_mapped_stable_39-1.12.jar  | None                                     |
+	| LCHIJA | veilings  | 0.0.1        | creaturesfromdarkness-0.1.1.jar                            | None                                     |
+
+	Loaded coremods (and transformers): 
+	GL info: ' Vendor: 'NVIDIA Corporation' Version: '4.6.0 NVIDIA 580.88' Renderer: 'NVIDIA GeForce GTX 1070/PCIe/SSE2'
+	Launched Version: ${MC_VERSION}
+	LWJGL: 2.9.4
+	OpenGL: NVIDIA GeForce GTX 1070/PCIe/SSE2 GL version 4.6.0 NVIDIA 580.88, NVIDIA Corporation
+	GL Caps: Using GL 1.3 multitexturing.
+Using GL 1.3 texture combiners.
+Using framebuffer objects because OpenGL 3.0 is supported and separate blending is supported.
+Shaders are available because OpenGL 2.1 is supported.
+VBOs are available because OpenGL 1.5 is supported.
+
+	Using VBOs: Yes
+	Is Modded: Definitely; Client brand changed to 'fml,forge'
+	Type: Client (map_client.txt)
+	Resource Packs: 
+	Current Language: English (US)
+	Profiler Position: N/A (disabled)
+	CPU: 16x AMD Ryzen 7 5800X 8-Core Processor 

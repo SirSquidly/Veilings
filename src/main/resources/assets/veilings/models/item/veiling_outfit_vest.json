@@ -1,0 +1,7 @@
+{
+    "parent": "item/generated",
+    "textures": {
+        "layer0": "veilings:items/veiling_outfits/veiling_outfit_vest_0",
+        "layer1": "veilings:items/veiling_outfits/veiling_outfit_vest_1"
+    }
+}

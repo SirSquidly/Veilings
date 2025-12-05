@@ -1,0 +1,18 @@
+{
+    "parent": "item/handheld",
+    "textures": { "layer0": "veilings:items/command_sceptre" },
+    "overrides": [
+        {
+            "predicate": { "ControlType": 0 },
+            "model": "veilings:item/command_sceptre_deft"
+        },
+        {
+            "predicate": { "ControlType": 1 },
+            "model": "veilings:item/command_sceptre_custodian"
+        },
+        {
+            "predicate": { "ControlType": 2 },
+            "model": "veilings:item/command_sceptre_dramatist"
+        }
+    ]
+}

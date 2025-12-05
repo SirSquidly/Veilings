@@ -1,0 +1,15 @@
+{
+  "minecraft:recipes/redstone/repeater": {
+    "criteria": {
+      "has_redstone_torch": "2024-10-22 20:58:24 -0700"
+    },
+    "done": true
+  },
+  "minecraft:adventure/adventuring_time": {
+    "criteria": {
+      "ice_flats": "2024-10-22 20:58:44 -0700",
+      "savanna": "2024-10-22 20:58:24 -0700"
+    },
+    "done": false
+  }
+}

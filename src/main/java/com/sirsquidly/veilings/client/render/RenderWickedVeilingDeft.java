@@ -1,0 +1,31 @@
+package com.sirsquidly.veilings.client.render;
+
+import com.sirsquidly.veilings.client.model.ModelVeilingDeft;
+import com.sirsquidly.veilings.client.model.outfits.ModelVeilingDeftOutfit;
+import com.sirsquidly.veilings.client.render.layers.LayerVeilingBodyOutfit;
+import com.sirsquidly.veilings.client.render.layers.LayerVeilingHeldItem;
+import com.sirsquidly.veilings.common.entity.wicked.EntityWickedVeilingDeft;
+import com.sirsquidly.veilings.veilings;
+import net.minecraft.client.renderer.entity.RenderManager;
+import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
+
+@SideOnly(Side.CLIENT)
+public class RenderWickedVeilingDeft extends RenderVeilingBase<EntityWickedVeilingDeft>
+{
+    public static final ResourceLocation WICKED_DEFT_TEXTURE = new ResourceLocation(veilings.MOD_ID + ":textures/entities/veiling/wicked/wicked_veiling_deft.png");
+    private final ModelVeilingDeftOutfit outfitBodyModel = new ModelVeilingDeftOutfit();
+
+    public RenderWickedVeilingDeft(RenderManager managerIn)
+    {
+        super(managerIn, new ModelVeilingDeft(), 0.2F);
+        this.addLayer(new LayerVeilingHeldItem(this, 0.2F));
+        this.addLayer(new LayerVeilingBodyOutfit(this, outfitBodyModel));
+    }
+
+    protected ResourceLocation getEntityTexture(EntityWickedVeilingDeft entity)
+    {
+        return WICKED_DEFT_TEXTURE;
+    }
+}

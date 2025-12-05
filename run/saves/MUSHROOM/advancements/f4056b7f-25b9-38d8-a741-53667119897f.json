@@ -1,0 +1,14 @@
+{
+  "minecraft:adventure/root": {
+    "criteria": {
+      "killed_something": "2025-04-27 18:31:42 -0700"
+    },
+    "done": true
+  },
+  "minecraft:adventure/adventuring_time": {
+    "criteria": {
+      "mushroom_island": "2025-04-27 18:31:28 -0700"
+    },
+    "done": false
+  }
+}

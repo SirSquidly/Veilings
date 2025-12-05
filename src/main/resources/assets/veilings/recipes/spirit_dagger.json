@@ -1,0 +1,15 @@
+{
+  "type": "forge:ore_shaped",
+  "pattern": [
+    "i",
+    "v"
+  ],
+  "key": {
+    "i": { "item": "minecraft:iron_ingot" },
+    "v": { "item": "veilings:veiling_essence" }
+  },
+  "result": {
+    "item": "veilings:spirit_dagger",
+    "count": 2
+  }
+}

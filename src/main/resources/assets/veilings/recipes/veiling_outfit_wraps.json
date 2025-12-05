@@ -1,0 +1,14 @@
+{
+  "type": "forge:ore_shaped",
+  "pattern": [
+    "viv",
+    "vvv"
+  ],
+  "key": {
+    "v": { "item": "veilings:veiling_weave" },
+    "i": { "item": "minecraft:paper" }
+  },
+  "result": {
+    "item": "veilings:veiling_outfit_wraps"
+  }
+}
