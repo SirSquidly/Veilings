@@ -5,6 +5,7 @@ import com.sirsquidly.veilings.common.entity.EntityVeilingDeft;
 import com.sirsquidly.veilings.init.VeilingsLootTables;
 import net.minecraft.entity.EntityAgeable;
 import net.minecraft.entity.ai.EntityAIAttackMelee;
+import net.minecraft.entity.ai.EntityAILeapAtTarget;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
 
@@ -16,6 +17,7 @@ public class EntityWickedVeilingDeft extends AbstractWickedVeiling
     protected void initEntityAI()
     {
         super.initEntityAI();
+        this.tasks.addTask(4, new EntityAILeapAtTarget(this, 0.4F));
         this.tasks.addTask(4, new EntityAIAttackMelee(this, 1.0D, true));
     }
 

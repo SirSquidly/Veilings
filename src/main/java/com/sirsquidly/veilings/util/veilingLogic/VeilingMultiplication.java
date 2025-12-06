@@ -11,6 +11,8 @@ import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldServer;
 
+import java.util.UUID;
+
 public class VeilingMultiplication
 {
 
@@ -117,14 +119,18 @@ public class VeilingMultiplication
         transformInto.setBodyOutfit(baseVeiling.getBodyOutfit());
         transformInto.copyAttributesFrom(baseVeiling);
 
-        if (!(transformInto instanceof AbstractWickedVeiling))
+        boolean fromWicked = baseVeiling instanceof AbstractWickedVeiling;
+        boolean toWicked = transformInto instanceof AbstractWickedVeiling;
+
+        UUID ownerUUID = fromWicked ? ((AbstractWickedVeiling)baseVeiling).getOldOwnerId() : baseVeiling.getOwnerId();
+
+        if (toWicked)
         {
-            transformInto.setOwnerId(baseVeiling.getOwnerId());
-        }
-        else
-        {
+            ((AbstractWickedVeiling)transformInto).setOldOwnerId(ownerUUID);
             transformInto.setMood(100);
         }
+        else
+        { transformInto.setOwnerId(ownerUUID); }
 
         if (baseVeiling.hasCustomName())
         {

@@ -32,7 +32,6 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import javax.annotation.Nullable;
 import java.util.List;
 
-// TODO: Clean up Staff Code majorly
 public class ItemCommandSceptre extends Item
 {
     public ItemCommandSceptre()

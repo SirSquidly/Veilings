@@ -11,7 +11,10 @@ import net.minecraft.world.World;
 public class EntityWickedVeilingDramatist extends AbstractWickedVeiling
 {
     public EntityWickedVeilingDramatist(World worldIn)
-    { super(worldIn); }
+    {
+        super(worldIn);
+        this.setSize(0.6F, 1.4F);
+    }
 
     protected void initEntityAI()
     {
