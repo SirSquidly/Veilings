@@ -1,16 +1,18 @@
 package com.sirsquidly.veilings.common.item;
 
+import net.minecraft.block.BlockCauldron;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.EnumDyeColor;
+import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.util.ActionResult;
 import net.minecraft.util.EnumActionResult;
+import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.util.text.translation.I18n;
 import net.minecraft.world.World;
@@ -19,7 +21,6 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 import java.util.List;
 
-// TODO: Add Crafting Recipe
 public class ItemVeilingOutfit extends Item
 {
     int outfitType;
@@ -35,21 +36,28 @@ public class ItemVeilingOutfit extends Item
         setMaxStackSize(1);
     }
 
-    public ActionResult<ItemStack> onItemRightClick(World worldIn, EntityPlayer playerIn, EnumHand handIn)
+    /** Allows Cauldron Cleaning of the Outfit's Dye. */
+    public EnumActionResult onItemUseFirst(EntityPlayer player, World world, BlockPos pos, EnumFacing side, float hitX, float hitY, float hitZ, EnumHand hand)
     {
-        ItemStack stack = playerIn.getHeldItem(handIn);
+        ItemStack itemstack = player.getHeldItem(hand);
+        if (itemstack.getItem() != this) return EnumActionResult.PASS;
+        if (!((ItemVeilingOutfit)itemstack.getItem()).hasColor(itemstack)) return EnumActionResult.PASS;
 
+        IBlockState state = world.getBlockState(pos);
 
-        playerIn.swingArm(handIn);
-
-        if (!worldIn.isRemote)
+        if (state.getBlock() == Blocks.CAULDRON)
         {
-            this.setColor(stack, EnumDyeColor.byMetadata(playerIn.world.rand.nextInt(16)).getColorValue());
+            BlockCauldron cauldron = (BlockCauldron)state.getBlock();
+            int level = state.getValue(BlockCauldron.LEVEL);
+            if (level <= 0) return EnumActionResult.PASS;
+
+            this.removeColor(itemstack);
+            cauldron.setWaterLevel(world, pos, state, level - 1);
+            return EnumActionResult.SUCCESS;
         }
 
-        return new ActionResult<>(EnumActionResult.SUCCESS, playerIn.getHeldItem(handIn));
+        return EnumActionResult.PASS;
     }
-
 
     public boolean hasColor(ItemStack stack)
     {
@@ -115,7 +123,8 @@ public class ItemVeilingOutfit extends Item
     @SideOnly(Side.CLIENT)
     public void addInformation(ItemStack stack, World world, List<String> tooltip, ITooltipFlag flag)
     {
-        //tooltip.add(TextFormatting.BLUE + I18n.translateToLocalFormatted("description.veilings." + MASK_NAME[maskType] + ".desc1"));
-        tooltip.add(TextFormatting.BLUE + I18n.translateToLocalFormatted(" +4 Armor"));
+        tooltip.add(TextFormatting.GRAY + I18n.translateToLocalFormatted("description.veilings.veiling_outfit.desc1"));
+        tooltip.add(TextFormatting.GRAY + I18n.translateToLocalFormatted("description.veilings.veiling_outfit.desc2"));
+        tooltip.add(TextFormatting.BLUE + I18n.translateToLocalFormatted("description.veilings.veiling_outfit.desc3"));
     }
 }

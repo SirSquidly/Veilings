@@ -16,7 +16,6 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 import java.util.List;
 
-// TODO: Add Crafting Recipe
 public class ItemVeilingMask extends Item
 {
     int maskType;

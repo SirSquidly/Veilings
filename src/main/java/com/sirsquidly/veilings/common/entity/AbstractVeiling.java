@@ -6,6 +6,7 @@ import com.sirsquidly.veilings.common.entity.ai.*;
 import com.sirsquidly.veilings.common.entity.wicked.AbstractWickedVeiling;
 import com.sirsquidly.veilings.common.item.ItemVeilingOutfit;
 import com.sirsquidly.veilings.init.VeilingsSounds;
+import com.sirsquidly.veilings.util.veilingItemUse.IVeilingItemUse;
 import com.sirsquidly.veilings.util.veilingItemUse.VeilingItemUseRegistry;
 import com.sirsquidly.veilings.util.veilingLogic.VeilingMultiplication;
 import net.minecraft.block.state.IBlockState;
@@ -33,6 +34,7 @@ import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.*;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
+import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldServer;
 import net.minecraftforge.fml.relauncher.Side;
@@ -194,15 +196,43 @@ public class AbstractVeiling extends EntityTameable
     public boolean processInteract(EntityPlayer player, EnumHand hand)
     {
         ItemStack itemstack = player.getHeldItem(hand);
+        boolean isOwner = this.isOwner(player);
 
-        if (this.isOwner(player))
+        if (!itemstack.isEmpty())
         {
-            if (!itemstack.isEmpty() && VeilingItemUseRegistry.get(itemstack.getItem()) != null)
+            IVeilingItemUse use = VeilingItemUseRegistry.get(itemstack.getItem());
+
+            if (use != null)
             {
-                this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, itemstack.copy());
-                player.swingArm(hand);
-                return true;
+                if (isOwner || use.isSafeItem(this, itemstack))
+                {
+                    ItemStack oldHeldItem = this.getHeldItem(EnumHand.MAIN_HAND);
+
+                    ItemStack newHeld = itemstack.copy();
+                    newHeld.setCount(1);
+                    this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, newHeld);
+
+                    if (!world.isRemote && !player.isCreative())
+                    {
+                        itemstack.shrink(1);
+
+                        if (!oldHeldItem.isEmpty())
+                        {
+                            if (itemstack.isEmpty())
+                            { player.setHeldItem(EnumHand.MAIN_HAND, oldHeldItem); }
+                            else if (!player.inventory.addItemStackToInventory(oldHeldItem))
+                            { player.dropItem(oldHeldItem, false); }
+                        }
+                    }
+
+                    player.swingArm(hand);
+                    return true;
+                }
             }
+        }
+
+        if (isOwner)
+        {
             if (itemstack.getItem() instanceof ItemVeilingOutfit)
             {
                 this.playSound(VeilingsSounds.ITEM_VEILING_OUTFIT_EQUIP, 0.5F, 1.0F);
@@ -245,6 +275,12 @@ public class AbstractVeiling extends EntityTameable
 
                 return super.processInteract(player, hand);
             }
+            else if (player.isSneaking() && itemstack.isEmpty() && !this.getHeldItem(EnumHand.MAIN_HAND).isEmpty())
+            {
+                player.setHeldItem(EnumHand.MAIN_HAND, this.getHeldItem(EnumHand.MAIN_HAND));
+                this.setHeldItem(EnumHand.MAIN_HAND, ItemStack.EMPTY);
+                return true;
+            }
             else
             {
                 if (!this.world.isRemote)
@@ -256,6 +292,7 @@ public class AbstractVeiling extends EntityTameable
                     spawnOverheadParticle(EnumParticleTypes.CRIT_MAGIC, this.getCommandMode() + 1);
 
                     this.setCommandMode(next);
+                    player.sendStatusMessage(new TextComponentTranslation("message.veilings.veiling.set_mode_" + next, this.getName()), true);
 
                     /** ONLY set HomePosition when they are Wandering! */
                     if (this.getCommandMode() == 1) this.setHomePosAndDistance(this.getPosition(), 8);
@@ -312,6 +349,7 @@ public class AbstractVeiling extends EntityTameable
     /** Veilings get sad when nearby ones die. */
     public void onDeath(DamageSource cause)
     {
+        this.setDropChance(EntityEquipmentSlot.MAINHAND, 100);
         for (AbstractVeiling veiling : world.getEntitiesWithinAABB(AbstractVeiling.class, this.getEntityBoundingBox().grow(5)))
         {
             if (veiling.getOwnerId() != null && !veiling.getOwnerId().equals(this.getOwnerId())) continue;
@@ -320,9 +358,9 @@ public class AbstractVeiling extends EntityTameable
 
         this.setArmPose(ModelVeilingBase.PoseBody.EMPTY);
 
-        if (!this.getBodyOutfit().isEmpty() && !world.isRemote)
+        if (!world.isRemote)
         {
-            this.entityDropItem(this.getBodyOutfit(), 1);
+            if (!this.getBodyOutfit().isEmpty()) this.entityDropItem(this.getBodyOutfit(), 1);
         }
 
         super.onDeath(cause);
@@ -389,6 +427,8 @@ public class AbstractVeiling extends EntityTameable
             }
         }
     }
+
+    // TODO: Alter how Clamped operates to lower unintended Tantrum Stopping.
     public void shiftHappiness(int shiftBy)
     { shiftHappiness(shiftBy, true); }
 
@@ -517,6 +557,17 @@ public class AbstractVeiling extends EntityTameable
 
         if (value != 0)
         { this.getEntityAttribute(attribute).applyModifier((new AttributeModifier(uuid, name, value, operation))); }
+    }
+
+    /** Copies all attributes from the given Veiling. */
+    public void copyAttributesFrom(AbstractVeiling other)
+    {
+        this.attributeDifferences.clear();
+
+        for (Map.Entry<String, Float> entry : other.attributeDifferences.entrySet())
+        { this.attributeDifferences.put(entry.getKey(), entry.getValue()); }
+
+        this.setupAttributeDifferences();
     }
 
     public void writeEntityToNBT(NBTTagCompound compound)

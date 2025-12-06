@@ -39,7 +39,25 @@ public class EntityVeilingDeft extends AbstractVeiling
         {
             if (!itemstack.isEmpty() && (itemstack.getItem() instanceof ItemSword || itemstack.getItem() instanceof ItemAxe))
             {
-                this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, itemstack.copy());
+                ItemStack oldHeldItem = this.getHeldItem(EnumHand.MAIN_HAND);
+
+                ItemStack newHeld = itemstack.copy();
+                newHeld.setCount(1);
+                this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, newHeld);
+
+                if (!world.isRemote && !player.isCreative())
+                {
+                    itemstack.shrink(1);
+
+                    if (!oldHeldItem.isEmpty())
+                    {
+                        if (itemstack.isEmpty())
+                        { player.setHeldItem(EnumHand.MAIN_HAND, oldHeldItem); }
+                        else if (!player.inventory.addItemStackToInventory(oldHeldItem))
+                        { player.dropItem(oldHeldItem, false); }
+                    }
+                }
+
                 player.swingArm(hand);
                 return true;
             }

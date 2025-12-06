@@ -8,6 +8,7 @@ import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
+// TODO: Lower item discard chance.
 public class EntityAIVeilingUseItem extends EntityAIBase
 {
     private final AbstractVeiling veiling;

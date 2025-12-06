@@ -115,6 +115,7 @@ public class VeilingMultiplication
         transformInto.favoriteFood = baseVeiling.getFavoriteFood();
         transformInto.setDanceType(baseVeiling.getDanceType());
         transformInto.setBodyOutfit(baseVeiling.getBodyOutfit());
+        transformInto.copyAttributesFrom(baseVeiling);
 
         if (!(transformInto instanceof AbstractWickedVeiling))
         {

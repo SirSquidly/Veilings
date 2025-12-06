@@ -21,7 +21,6 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 import java.util.List;
 
-// TODO: Add into Nether Fortress Loot Table
 public class ItemVeilingEgg extends Item
 {
     public ItemVeilingEgg()
