@@ -46,6 +46,8 @@ public class IVeilingUseThrowable implements IVeilingItemUse
 
     public int getUseTime() { return 20; }
 
+    public boolean isSafeItem(AbstractVeiling veiling, ItemStack stack) { return false; }
+
     public IProjectile getProjectileEntity(World worldIn, AbstractVeiling veiling, ItemStack stackIn)
     { return null; }
 

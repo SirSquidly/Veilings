@@ -29,4 +29,6 @@ public class IVeilingUseMask implements IVeilingItemUse
     public boolean canUseItem(AbstractVeiling veiling, ItemStack stack) { return !(veiling instanceof AbstractWickedVeiling); }
 
     public int getUseTime() { return 20; }
+
+    public boolean isSafeItem(AbstractVeiling veiling, ItemStack stack) { return false; }
 }

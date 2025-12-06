@@ -36,7 +36,7 @@ public class EntityAIVeilingFearMob<T extends Entity> extends EntityAIAvoidEntit
 
         if (this.entity.getDistanceSq(this.closestLivingEntity) < 49.0D)
         {
-            veiling.shiftHappiness(-1);
+            veiling.shiftHappiness(-1, false);
             veiling.setArmPose(ModelVeilingBase.PoseBody.CRYING);
             veiling.playSound(veiling.getPanicSound(), 1.0F, veiling.getPublicSoundPitch());
         }

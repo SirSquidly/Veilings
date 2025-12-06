@@ -66,6 +66,8 @@ public class IVeilingUseAttributeModifier implements IVeilingItemUse
 
     public int getUseTime() { return 60; }
 
+    public boolean isSafeItem(AbstractVeiling veiling, ItemStack stack) { return false; }
+
     public boolean canUseItem(AbstractVeiling veiling, ItemStack stack) { return veiling.getEatCooldown() <= 0; }
 
     public boolean requiredCondition(AbstractVeiling veiling, ItemStack stack)

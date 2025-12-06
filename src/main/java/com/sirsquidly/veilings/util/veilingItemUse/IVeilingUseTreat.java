@@ -75,4 +75,6 @@ public class IVeilingUseTreat implements IVeilingItemUse
 
     public boolean canUseItem(AbstractVeiling veiling, ItemStack stack) { return veiling.getEatCooldown() <= 0; }
     public int getUseTime() { return 20; }
+
+    public boolean isSafeItem(AbstractVeiling veiling, ItemStack stack) { return true; }
 }

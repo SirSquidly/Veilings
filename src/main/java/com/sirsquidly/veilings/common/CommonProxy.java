@@ -64,6 +64,8 @@ public class CommonProxy
         VeilingItemUseRegistry.register(VeilingsItems.VEILING_MASK_DEFT, new IVeilingUseMask());
         VeilingItemUseRegistry.register(VeilingsItems.VEILING_MASK_DRAMATIST, new IVeilingUseMask());
 
+        VeilingItemUseRegistry.register(Items.SLIME_BALL, new IVeilingUseSlimeball());
+
         VeilingItemUseRegistry.register(Items.EGG, new IVeilingUseThrowable(SoundEvents.ENTITY_EGG_THROW, 3)
         {
             public IProjectile getProjectileEntity(World worldIn, AbstractVeiling veiling, ItemStack stackIn)
