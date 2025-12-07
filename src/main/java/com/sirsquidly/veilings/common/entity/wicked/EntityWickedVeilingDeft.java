@@ -17,8 +17,8 @@ public class EntityWickedVeilingDeft extends AbstractWickedVeiling
     protected void initEntityAI()
     {
         super.initEntityAI();
-        this.tasks.addTask(4, new EntityAILeapAtTarget(this, 0.4F));
-        this.tasks.addTask(4, new EntityAIAttackMelee(this, 1.0D, true));
+        this.tasks.addTask(1, new EntityAILeapAtTarget(this, 0.4F));
+        this.tasks.addTask(1, new EntityAIAttackMelee(this, 1.0D, true));
     }
 
     public EntityAgeable createChild(EntityAgeable ageable) { return new EntityWickedVeilingDeft(ageable.world); }

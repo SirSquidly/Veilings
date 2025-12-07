@@ -19,7 +19,7 @@ public class EntityWickedVeilingDramatist extends AbstractWickedVeiling
     protected void initEntityAI()
     {
         super.initEntityAI();
-        this.tasks.addTask(4, new EntityAIVeilingSpiritDagger(this, 1.0D, 20, 20));
+        this.tasks.addTask(4, new EntityAIVeilingSpiritDagger(this, 1.0D, 1.2D, 18, 6));
     }
 
     public EntityAgeable createChild(EntityAgeable ageable) { return new EntityWickedVeilingDramatist(ageable.world); }

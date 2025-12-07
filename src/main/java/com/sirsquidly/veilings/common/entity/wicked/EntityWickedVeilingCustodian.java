@@ -23,8 +23,8 @@ public class EntityWickedVeilingCustodian extends AbstractWickedVeiling
     protected void initEntityAI()
     {
         super.initEntityAI();
-        this.tasks.addTask(3, new EntityAIVeilingHealNearby(this));
-        this.tasks.addTask(4, new EntityAIAttackMelee(this, 1.0D, true));
+        this.tasks.addTask(1, new EntityAIVeilingHealNearby(this));
+        this.tasks.addTask(1, new EntityAIAttackMelee(this, 1.0D, true));
     }
 
     protected void applyEntityAttributes()

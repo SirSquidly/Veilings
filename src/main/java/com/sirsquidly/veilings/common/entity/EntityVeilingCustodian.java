@@ -3,16 +3,12 @@ package com.sirsquidly.veilings.common.entity;
 import com.sirsquidly.veilings.common.entity.ai.EntityAIVeilingHealNearby;
 import com.sirsquidly.veilings.common.entity.wicked.EntityWickedVeilingCustodian;
 import com.sirsquidly.veilings.init.VeilingsLootTables;
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityAgeable;
-import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.EntityAIAttackMelee;
 import net.minecraft.init.MobEffects;
 import net.minecraft.potion.PotionEffect;
-import net.minecraft.util.DamageSource;
 import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 
 public class EntityVeilingCustodian extends AbstractVeiling
@@ -26,8 +22,8 @@ public class EntityVeilingCustodian extends AbstractVeiling
     protected void initEntityAI()
     {
         super.initEntityAI();
-        this.tasks.addTask(3, new EntityAIVeilingHealNearby(this));
-        this.tasks.addTask(4, new EntityAIAttackMelee(this, 1.0D, true));
+        this.tasks.addTask(1, new EntityAIVeilingHealNearby(this));
+        this.tasks.addTask(1, new EntityAIAttackMelee(this, 1.0D, true));
     }
 
     protected void applyEntityAttributes()

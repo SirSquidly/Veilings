@@ -117,17 +117,17 @@ public class AbstractVeiling extends EntityTameable
     protected void initEntityAI()
     {
         this.tasks.addTask(0, new EntityAISwimming(this));
-        this.tasks.addTask(6, new EntityAIVeilingCommandSit(this));
-        this.tasks.addTask(3, new EntityAIVeilingDislikeSunlight(this));
-        this.tasks.addTask(3, new EntityAIVeilingBeg(this, 8.0F));
-        this.tasks.addTask(3, new EntityAILookIdle(this));
-        this.tasks.addTask(5, new EntityAIVeilingFearMob<>(this, EntityZombie.class, 8.0F, 1.0D, 1.0D));
-        this.tasks.addTask(5, new EntityAIVeilingFearMob<>(this, AbstractWickedVeiling.class, 2.0F, 1.2D, 1.0D));
-        this.tasks.addTask(6, new EntityAIVeilingCommandWander(this, 1.0D));
-        this.tasks.addTask(6, new EntityAIVeilingCommandFollow(this, 1.0D, 10.0F, 2.0F));
-        this.tasks.addTask(7, new EntityAIVeilingUseItem(this));
-        this.tasks.addTask(7, new EntityAIVeilingSnowballFight(this));
-        this.tasks.addTask(8, new EntityAIVeilingDanceParty(this));
+        this.tasks.addTask(2, new EntityAIVeilingFearMob<>(this, EntityZombie.class, 8.0F, 1.0D, 1.0D));
+        this.tasks.addTask(2, new EntityAIVeilingFearMob<>(this, AbstractWickedVeiling.class, 2.0F, 1.2D, 1.0D));
+        this.tasks.addTask(3, new EntityAIVeilingCommandWander(this, 1.0D));
+        this.tasks.addTask(3, new EntityAIVeilingCommandFollow(this, 1.0D, 10.0F, 2.0F));
+        this.tasks.addTask(3, new EntityAIVeilingCommandSit(this));
+        this.tasks.addTask(4, new EntityAIVeilingUseItem(this));
+        this.tasks.addTask(5, new EntityAIVeilingSnowballFight(this));
+        this.tasks.addTask(5, new EntityAIVeilingDanceParty(this));
+        this.tasks.addTask(6, new EntityAIVeilingBeg(this, 8.0F));
+        this.tasks.addTask(7, new EntityAILookIdle(this));
+        this.tasks.addTask(7, new EntityAIVeilingDislikeSunlight(this));
         this.targetTasks.addTask(1, new EntityAIOwnerHurtByTarget(this));
         this.targetTasks.addTask(2, new EntityAIOwnerHurtTarget(this));
         this.targetTasks.addTask(3, new EntityAIHurtByTarget(this, true, AbstractWickedVeiling.class));
