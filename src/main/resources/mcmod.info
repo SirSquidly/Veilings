@@ -10,7 +10,7 @@
       "Sir Squidly"
     ],
     "credits": "The_Computerizer for their very nice Build template",
-    "logoFile": "modlogo.png",
+    "logoFile": "assets/veilings/textures/gui/veilings_logo.png",
     "screenshots": [],
     "dependencies": []
   }
