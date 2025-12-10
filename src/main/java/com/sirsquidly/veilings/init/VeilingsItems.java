@@ -4,9 +4,9 @@ import com.sirsquidly.veilings.common.item.*;
 import com.sirsquidly.veilings.veilings;
 import net.minecraft.client.renderer.color.IItemColor;
 import net.minecraft.client.renderer.color.ItemColors;
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.MobEffects;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemFood;
 import net.minecraft.potion.PotionEffect;
 import net.minecraftforge.client.event.ColorHandlerEvent;
 import net.minecraftforge.client.event.ModelRegistryEvent;
@@ -24,8 +24,8 @@ public class VeilingsItems
 {
     public static final List<Item> itemList = new ArrayList<Item>();
     public static Item VEILING_EGG = new ItemVeilingEgg();
-    public static Item VEILING_ESSENCE = new Item();
-    public static Item VEILING_WEAVE = new Item();
+    public static Item VEILING_ESSENCE = new Item().setCreativeTab(CreativeTabs.MISC);
+    public static Item VEILING_WEAVE = new Item().setCreativeTab(CreativeTabs.MISC);
 
     public static Item VEILING_TIRAMISU = new ItemVeilingTreat(5, 0.6F, false).setPotionEffect(new PotionEffect(MobEffects.ABSORPTION, 30 * 20, 0), 1.0F);
     public static Item COMMAND_SCEPTRE = new ItemCommandSceptre();
