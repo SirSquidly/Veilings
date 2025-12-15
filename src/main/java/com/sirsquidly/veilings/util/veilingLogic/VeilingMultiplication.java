@@ -2,6 +2,7 @@ package com.sirsquidly.veilings.util.veilingLogic;
 
 import com.sirsquidly.veilings.common.entity.AbstractVeiling;
 import com.sirsquidly.veilings.common.entity.wicked.AbstractWickedVeiling;
+import com.sirsquidly.veilings.config.ConfigCache;
 import com.sirsquidly.veilings.config.ConfigParser;
 import com.sirsquidly.veilings.init.VeilingsItems;
 import net.minecraft.entity.player.EntityPlayer;
@@ -18,18 +19,25 @@ public class VeilingMultiplication
 
     public void tick(AbstractVeiling veiling)
     {
-        if (veiling.world.isRemote) return;
+        if (veiling.world.isRemote || !ConfigCache.mlt_mltEnb) return;
 
         if (veiling.getSpawnCooldown() > 0) veiling.setSpawnCooldown(veiling.getSpawnCooldown() - 1);
         else if (veiling.isWet())
         {
+            if (ConfigCache.mlt_spnEpo)
+            {
+                boolean flag = net.minecraftforge.event.ForgeEventFactory.getMobGriefingEvent(veiling.world, veiling);
+                veiling.world.createExplosion(veiling, veiling.posX, veiling.posY, veiling.posZ, 0.5F, flag);
+            }
+
             ((WorldServer)veiling.world).spawnParticle(EnumParticleTypes.EXPLOSION_NORMAL, veiling.posX, veiling.posY, veiling.posZ,
                     200, 0.25D, 0.25D, 0.25D, 0.05D);
 
             AbstractVeiling newVeiling = veiling.multiplyLogic.generateNewVeiling(veiling.world, veiling);
 
-            veiling.shiftHappiness(-20);
-            newVeiling.setMood(veiling.getMood());
+            veiling.shiftHappiness(ConfigCache.mod_mltSft);
+            newVeiling.setMood(ConfigCache.mlt_irtPntMod ? veiling.getMood() : 100);
+
             newVeiling.setPosition(veiling.posX, veiling.posY, veiling.posZ);
             veiling.world.spawnEntity(newVeiling);
 

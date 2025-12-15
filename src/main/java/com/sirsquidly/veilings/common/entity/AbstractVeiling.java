@@ -429,9 +429,17 @@ public class AbstractVeiling extends EntityTameable
 
             if (this.getMood() <= -100)
             {
-                multiplyLogic.transformVeiling(world, this, getInverse(this));
+                if (ConfigCache.mod_trnWikEnb)
+                {
+                    multiplyLogic.transformVeiling(world, this, getInverse(this));
 
-                this.playSound(SoundEvents.ENTITY_GENERIC_EXTINGUISH_FIRE, 1.0F, 1.0F);
+                    this.playSound(SoundEvents.ENTITY_GENERIC_EXTINGUISH_FIRE, 1.0F, 1.0F);
+                }
+                else
+                {
+                    setArmPose(ModelVeilingBase.PoseBody.EMPTY);
+                    shiftHappiness(120);
+                }
             }
         }
     }

@@ -92,11 +92,16 @@ public class Config
         }
 
         @net.minecraftforge.common.config.Config.LangKey("config.veilings.veiling.mood")
-        @net.minecraftforge.common.config.Config.Comment("Config related to Veilings themselves")
+        @net.minecraftforge.common.config.Config.Comment("All config for the Mood System")
         public configEntity.configVeilingMood mood = new configEntity.configVeilingMood();
 
         public static class configVeilingMood
         {
+            @net.minecraftforge.common.config.Config.RequiresMcRestart
+            @net.minecraftforge.common.config.Config.LangKey("config.veilings.veiling.mood.enableTurningWicked")
+            @net.minecraftforge.common.config.Config.Comment("Tantruming Veilings turn Wicked. If disabled, they rebound to a low mood after a tantrum.")
+            public boolean enableTurningWicked = true;
+
             @net.minecraftforge.common.config.Config.RequiresMcRestart
             @net.minecraftforge.common.config.Config.LangKey("config.veilings.veiling.mood.enableSunlightDislike")
             @net.minecraftforge.common.config.Config.Comment("Veilings slightly dislike Sunlight.")
@@ -116,19 +121,35 @@ public class Config
             @net.minecraftforge.common.config.Config.LangKey("config.veilings.veiling.mood.veilingSympathy")
             @net.minecraftforge.common.config.Config.Comment("The mood shift when a Veilings friends (ones of the same owner) die.")
             public int veilingSympathy = -5;
+
+            @net.minecraftforge.common.config.Config.RequiresMcRestart
+            @net.minecraftforge.common.config.Config.LangKey("config.veilings.veiling.mood.veilingMultiply")
+            @net.minecraftforge.common.config.Config.Comment("The mood shift when a Veilings Multiplies.")
+            public int veilingMultiply = -20;
+        }
+
+        @net.minecraftforge.common.config.Config.LangKey("config.veilings.veiling.multiply")
+        @net.minecraftforge.common.config.Config.Comment("All config for the Multiplying System")
+        public configEntity.configVeilingMultiply multiply = new configEntity.configVeilingMultiply();
+
+        public static class configVeilingMultiply
+        {
+            @net.minecraftforge.common.config.Config.RequiresMcRestart
+            @net.minecraftforge.common.config.Config.LangKey("config.veilings.veiling.multiply.enableMultiplying")
+            @net.minecraftforge.common.config.Config.Comment("Enables the Multiplying via Water System.")
+            public boolean enableMultiplying = true;
+
+            @net.minecraftforge.common.config.Config.RequiresMcRestart
+            @net.minecraftforge.common.config.Config.LangKey("config.veilings.veiling.multiply.spawnInheritsParentMood")
+            @net.minecraftforge.common.config.Config.Comment("Child Veilings inherit the Mood of their Parent. Else they start with Max Mood.")
+            public boolean spawnInheritsParentMood = true;
+
+            @net.minecraftforge.common.config.Config.RequiresMcRestart
+            @net.minecraftforge.common.config.Config.LangKey("config.veilings.veiling.multiply.enableSpawnExplosion")
+            @net.minecraftforge.common.config.Config.Comment("Cause a literal mini-explosion when multiplying. DOES damage terrain, only a little.")
+            public boolean enableSpawnExplosion = false;
         }
     }
-
-
-
-
-
-
-
-
-
-
-
 
 
 

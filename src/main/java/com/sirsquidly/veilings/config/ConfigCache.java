@@ -17,8 +17,15 @@ public class ConfigCache
 
 
     /** Mood */
+    public static final boolean mod_trnWikEnb = Config.entity.mood.enableTurningWicked;
     public static final boolean mod_sunHatEnb = Config.entity.mood.enableSunlightDislike;
     public static final boolean mod_zomFerEnb = Config.entity.mood.enableZombieFear;
     public static final int mod_fstNamSft = Config.entity.mood.veilingNewName;
     public static final int mod_dthSft = Config.entity.mood.veilingSympathy;
+    public static final int mod_mltSft = Config.entity.mood.veilingMultiply;
+
+    /** Multiplying */
+    public static final boolean mlt_mltEnb = Config.entity.multiply.enableMultiplying;
+    public static final boolean mlt_spnEpo = Config.entity.multiply.enableSpawnExplosion;
+    public static final boolean mlt_irtPntMod = Config.entity.multiply.spawnInheritsParentMood;
 }
