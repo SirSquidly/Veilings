@@ -126,6 +126,7 @@ public class AbstractVeiling extends EntityTameable
         this.tasks.addTask(5, new EntityAIVeilingSnowballFight(this));
         this.tasks.addTask(5, new EntityAIVeilingDanceParty(this));
         this.tasks.addTask(6, new EntityAIVeilingBeg(this, 8.0F));
+        this.tasks.addTask(7, new EntityAIWatchClosest(this, EntityPlayer.class, 8.0F));
         this.tasks.addTask(7, new EntityAILookIdle(this));
         this.targetTasks.addTask(1, new EntityAIOwnerHurtByTarget(this));
         this.targetTasks.addTask(2, new EntityAIOwnerHurtTarget(this));
