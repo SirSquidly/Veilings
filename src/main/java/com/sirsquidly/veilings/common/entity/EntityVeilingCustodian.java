@@ -2,6 +2,7 @@ package com.sirsquidly.veilings.common.entity;
 
 import com.sirsquidly.veilings.common.entity.ai.EntityAIVeilingHealNearby;
 import com.sirsquidly.veilings.common.entity.wicked.EntityWickedVeilingCustodian;
+import com.sirsquidly.veilings.config.ConfigCache;
 import com.sirsquidly.veilings.init.VeilingsLootTables;
 import net.minecraft.entity.EntityAgeable;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -19,17 +20,18 @@ public class EntityVeilingCustodian extends AbstractVeiling
         this.setSize(0.6F, 1.25F);
     }
 
+    protected void applyEntityAttributes()
+    {
+        super.applyEntityAttributes();
+        this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(ConfigCache.cus_basHth);
+        this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(ConfigCache.cus_basAtk);
+    }
+
     protected void initEntityAI()
     {
         super.initEntityAI();
         this.tasks.addTask(1, new EntityAIVeilingHealNearby(this));
         this.tasks.addTask(1, new EntityAIAttackMelee(this, 1.0D, true));
-    }
-
-    protected void applyEntityAttributes()
-    {
-        super.applyEntityAttributes();
-        this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(2.0D);
     }
 
     public EntityAgeable createChild(EntityAgeable ageable) { return new EntityVeilingCustodian(ageable.world); }

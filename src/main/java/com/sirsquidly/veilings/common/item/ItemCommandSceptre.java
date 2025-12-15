@@ -37,7 +37,7 @@ public class ItemCommandSceptre extends Item
     public ItemCommandSceptre()
     {
         this.maxStackSize = 1;
-        this.setCreativeTab(CreativeTabs.MATERIALS);
+        this.setCreativeTab(CreativeTabs.TOOLS);
 
         this.addPropertyOverride(new ResourceLocation("ControlType"), new IItemPropertyGetter()
         {

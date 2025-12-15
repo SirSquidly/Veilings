@@ -1,8 +1,10 @@
 package com.sirsquidly.veilings.common.entity;
 
 import com.sirsquidly.veilings.common.entity.wicked.EntityWickedVeilingDeft;
+import com.sirsquidly.veilings.config.ConfigCache;
 import com.sirsquidly.veilings.init.VeilingsLootTables;
 import net.minecraft.entity.EntityAgeable;
+import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.EntityAIAttackMelee;
 import net.minecraft.entity.ai.EntityAILeapAtTarget;
 import net.minecraft.entity.player.EntityPlayer;
@@ -16,6 +18,13 @@ public class EntityVeilingDeft extends AbstractVeiling
 {
     public EntityVeilingDeft(World worldIn)
     { super(worldIn); }
+
+    protected void applyEntityAttributes()
+    {
+        super.applyEntityAttributes();
+        this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(ConfigCache.dft_basHth);
+        this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(ConfigCache.dft_basAtk);
+    }
 
     protected void initEntityAI()
     {

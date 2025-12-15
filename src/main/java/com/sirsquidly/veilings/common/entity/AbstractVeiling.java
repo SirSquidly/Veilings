@@ -5,6 +5,7 @@ import com.sirsquidly.veilings.client.model.ModelVeilingDeft;
 import com.sirsquidly.veilings.common.entity.ai.*;
 import com.sirsquidly.veilings.common.entity.wicked.AbstractWickedVeiling;
 import com.sirsquidly.veilings.common.item.ItemVeilingOutfit;
+import com.sirsquidly.veilings.config.ConfigCache;
 import com.sirsquidly.veilings.init.VeilingsSounds;
 import com.sirsquidly.veilings.util.veilingItemUse.IVeilingItemUse;
 import com.sirsquidly.veilings.util.veilingItemUse.VeilingItemUseRegistry;
@@ -117,7 +118,6 @@ public class AbstractVeiling extends EntityTameable
     protected void initEntityAI()
     {
         this.tasks.addTask(0, new EntityAISwimming(this));
-        this.tasks.addTask(2, new EntityAIVeilingFearMob<>(this, EntityZombie.class, 8.0F, 1.0D, 1.0D));
         this.tasks.addTask(2, new EntityAIVeilingFearMob<>(this, AbstractWickedVeiling.class, 2.0F, 1.2D, 1.0D));
         this.tasks.addTask(3, new EntityAIVeilingCommandWander(this, 1.0D));
         this.tasks.addTask(3, new EntityAIVeilingCommandFollow(this, 1.0D, 10.0F, 2.0F));
@@ -127,10 +127,18 @@ public class AbstractVeiling extends EntityTameable
         this.tasks.addTask(5, new EntityAIVeilingDanceParty(this));
         this.tasks.addTask(6, new EntityAIVeilingBeg(this, 8.0F));
         this.tasks.addTask(7, new EntityAILookIdle(this));
-        this.tasks.addTask(7, new EntityAIVeilingDislikeSunlight(this));
         this.targetTasks.addTask(1, new EntityAIOwnerHurtByTarget(this));
         this.targetTasks.addTask(2, new EntityAIOwnerHurtTarget(this));
         this.targetTasks.addTask(3, new EntityAIHurtByTarget(this, true, AbstractWickedVeiling.class));
+
+        setupAdditionalAI();
+    }
+
+    /** Basic method for any AI tasks that are altered via Config. */
+    protected void setupAdditionalAI()
+    {
+        if (ConfigCache.mod_zomFerEnb) this.tasks.addTask(2, new EntityAIVeilingFearMob<>(this, EntityZombie.class, 8.0F, 1.0D, 1.0D));
+        if (ConfigCache.mod_sunHatEnb) this.tasks.addTask(7, new EntityAIVeilingDislikeSunlight(this));
     }
 
     /** Yes, these babies are Undead. */
@@ -268,7 +276,7 @@ public class AbstractVeiling extends EntityTameable
             {
                 if (!this.hasCustomName())
                 {
-                    this.shiftHappiness(100);
+                    this.shiftHappiness(ConfigCache.mod_fstNamSft);
                     spawnOverheadParticle(EnumParticleTypes.HEART, 1 + this.world.rand.nextInt(3));
                 }
                 else this.shiftHappiness(-5 + this.world.rand.nextInt(20));
@@ -353,7 +361,7 @@ public class AbstractVeiling extends EntityTameable
         for (AbstractVeiling veiling : world.getEntitiesWithinAABB(AbstractVeiling.class, this.getEntityBoundingBox().grow(5)))
         {
             if (veiling.getOwnerId() != null && !veiling.getOwnerId().equals(this.getOwnerId())) continue;
-            if (veiling.getMood() > 10) veiling.shiftHappiness(-5);
+            if (veiling.getMood() > 10) veiling.shiftHappiness(ConfigCache.mod_dthSft);
         }
 
         this.setArmPose(ModelVeilingBase.PoseBody.EMPTY);
