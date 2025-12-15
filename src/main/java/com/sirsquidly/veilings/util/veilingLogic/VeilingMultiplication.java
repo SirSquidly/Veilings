@@ -21,6 +21,9 @@ public class VeilingMultiplication
     {
         if (veiling.world.isRemote || !ConfigCache.mlt_mltEnb) return;
 
+        /* Wicked act as a soft cap for the system. */
+        if (veiling instanceof AbstractWickedVeiling) return;
+
         if (veiling.getSpawnCooldown() > 0) veiling.setSpawnCooldown(veiling.getSpawnCooldown() - 1);
         else if (veiling.isWet())
         {
