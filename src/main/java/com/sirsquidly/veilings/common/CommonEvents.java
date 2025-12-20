@@ -17,6 +17,7 @@ import net.minecraft.world.storage.loot.conditions.LootCondition;
 import net.minecraft.world.storage.loot.functions.LootFunction;
 import net.minecraftforge.event.LootTableLoadEvent;
 import net.minecraftforge.event.entity.living.LivingAttackEvent;
+import net.minecraftforge.event.entity.living.LivingDeathEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
@@ -53,5 +54,25 @@ public class CommonEvents
         {
             ((EntityPlayer) sourceEntity).addPotionEffect(new PotionEffect(MobEffects.SPEED, 4 * 20));
         }
+    }
+
+    @SubscribeEvent
+    public static void attemptVeilingTotemUse(LivingDeathEvent event)
+    {
+        if (event.getEntityLiving().world.isRemote) return;
+        if (!(event.getEntityLiving() instanceof AbstractVeiling)) return;
+
+        AbstractVeiling veiling = (AbstractVeiling) event.getEntityLiving();
+        if (veiling.getAttributeValue("undying_bonus") <= 0) return;
+
+        event.setCanceled(true);
+        /* Remove the Undying ability after using it once. */
+        veiling.applyUpgrade("undying_bonus", 0);
+
+        veiling.setHealth(1.0F);
+        veiling.clearActivePotions();
+        veiling.addPotionEffect(new PotionEffect(MobEffects.ABSORPTION, 100, 1));
+        // veiling.addPotionEffect(new PotionEffect(MobEffects.REGENERATION, 900, 1));
+        veiling.world.setEntityState(veiling, (byte)35);
     }
 }

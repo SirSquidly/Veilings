@@ -5,6 +5,7 @@ import com.sirsquidly.veilings.client.model.ModelVeilingDeft;
 import com.sirsquidly.veilings.common.entity.ai.*;
 import com.sirsquidly.veilings.common.entity.wicked.AbstractWickedVeiling;
 import com.sirsquidly.veilings.common.item.ItemVeilingMask;
+import com.sirsquidly.veilings.common.item.ItemVeilingNail;
 import com.sirsquidly.veilings.common.item.ItemVeilingOutfit;
 import com.sirsquidly.veilings.config.ConfigCache;
 import com.sirsquidly.veilings.init.VeilingsSounds;
@@ -286,6 +287,29 @@ public class AbstractVeiling extends EntityTameable
 
                 return super.processInteract(player, hand);
             }
+            else if (itemstack.getItem() instanceof ItemVeilingNail)
+            {
+                ItemVeilingNail nail = (ItemVeilingNail)itemstack.getItem();
+
+                if (this.getAttributeValue(nail.getUpgradeString()) <= 0)
+                {
+                    if (!world.isRemote) this.applyUpgrade(nail.getUpgradeString(), nail.getUpgradeValue());
+
+                    if (this.getHealth() > 1) this.attackEntityFrom(EntityDamageSource.causePlayerDamage(player), 1);
+                    else
+                    {
+                        this.attackEntityFrom(EntityDamageSource.causePlayerDamage(player), 0);
+                        shiftHappiness(-10);
+                    }
+
+                    itemstack.shrink(1);
+
+                    this.playSound(VeilingsSounds.ITEM_VEILING_NAIL_USE, 1.0F, 1.0F);
+                    this.playSound(this.getPanicSound(), 1.0F, 1.0F);
+                    player.swingArm(hand);
+                    return true;
+                }
+            }
             else if (player.isSneaking() && itemstack.isEmpty() && !this.getHeldItem(EnumHand.MAIN_HAND).isEmpty())
             {
                 player.setHeldItem(EnumHand.MAIN_HAND, this.getHeldItem(EnumHand.MAIN_HAND));
@@ -445,7 +469,7 @@ public class AbstractVeiling extends EntityTameable
 
             if (this.getMood() <= -100)
             {
-                if (ConfigCache.mod_trnWikEnb)
+                if (ConfigCache.mod_trnWikEnb && this.getAttributeValue("wicked_immunity_bonus") <= 0)
                 {
                     multiplyLogic.transformVeiling(world, this, getInverse(this));
 
@@ -546,10 +570,8 @@ public class AbstractVeiling extends EntityTameable
     /** A simple method for adding new Attributes to the Veiling. */
     public void applyUpgrade(String key, float amount)
     {
-        float newValue = this.getAttributeValue(key) + amount;
-        attributeDifferences.put(key, newValue);
-
-        updateAttributeFromKey(key, newValue);
+        attributeDifferences.put(key, amount);
+        updateAttributeFromKey(key, amount);
     }
 
     public Float getAttributeValue(String key) { return attributeDifferences.getOrDefault(key, 0f); }

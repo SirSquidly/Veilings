@@ -1,0 +1,15 @@
+{
+  "type": "forge:ore_shaped",
+  "pattern": [
+    " v ",
+    "vdv",
+    " v "
+  ],
+  "key": {
+    "v": { "item": "veilings:veiling_essence" },
+    "d": { "item": "minecraft:diamond" }
+  },
+  "result": {
+    "item": "veilings:impresario_silk"
+  }
+}

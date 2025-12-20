@@ -27,32 +27,35 @@ public class VeilingMultiplication
         if (veiling.getSpawnCooldown() > 0) veiling.setSpawnCooldown(veiling.getSpawnCooldown() - 1);
         else if (veiling.isWet())
         {
-            if (ConfigCache.mlt_spnEpo)
+            if (veiling.getAttributeValue("multiply_immunity_bonus") <= 0)
             {
-                boolean flag = net.minecraftforge.event.ForgeEventFactory.getMobGriefingEvent(veiling.world, veiling);
-                veiling.world.createExplosion(veiling, veiling.posX, veiling.posY, veiling.posZ, 0.5F, flag);
-            }
+                if (ConfigCache.mlt_spnEpo)
+                {
+                    boolean flag = net.minecraftforge.event.ForgeEventFactory.getMobGriefingEvent(veiling.world, veiling);
+                    veiling.world.createExplosion(veiling, veiling.posX, veiling.posY, veiling.posZ, 0.5F, flag);
+                }
 
-            ((WorldServer)veiling.world).spawnParticle(EnumParticleTypes.EXPLOSION_NORMAL, veiling.posX, veiling.posY, veiling.posZ,
-                    200, 0.25D, 0.25D, 0.25D, 0.05D);
+                ((WorldServer)veiling.world).spawnParticle(EnumParticleTypes.EXPLOSION_NORMAL, veiling.posX, veiling.posY, veiling.posZ,
+                        200, 0.25D, 0.25D, 0.25D, 0.05D);
 
-            AbstractVeiling newVeiling = veiling.multiplyLogic.generateNewVeiling(veiling.world, veiling);
+                AbstractVeiling newVeiling = veiling.multiplyLogic.generateNewVeiling(veiling.world, veiling);
 
-            veiling.shiftHappiness(ConfigCache.mod_mltSft);
-            newVeiling.setMood(ConfigCache.mlt_irtPntMod ? veiling.getMood() : 100);
+                veiling.shiftHappiness(ConfigCache.mod_mltSft);
+                newVeiling.setMood(ConfigCache.mlt_irtPntMod ? veiling.getMood() : 100);
 
-            newVeiling.setPosition(veiling.posX, veiling.posY, veiling.posZ);
-            veiling.world.spawnEntity(newVeiling);
+                newVeiling.setPosition(veiling.posX, veiling.posY, veiling.posZ);
+                veiling.world.spawnEntity(newVeiling);
 
-            /* Wicked drop no Essence when multiplying. */
-            if (!(veiling instanceof AbstractWickedVeiling))
-            {
-                this.imprintOnNearestPlayer(newVeiling);
-                veiling.dropItem(VeilingsItems.VEILING_ESSENCE, 1);
+                /* Wicked drop no Essence when multiplying. */
+                if (!(veiling instanceof AbstractWickedVeiling))
+                {
+                    this.imprintOnNearestPlayer(newVeiling);
+                    veiling.dropItem(VeilingsItems.VEILING_ESSENCE, 1);
+                }
+                veiling.playSound(SoundEvents.ENTITY_GENERIC_EXTINGUISH_FIRE, 1.0F, 1.0F);
             }
 
             veiling.setSpawnCooldown(veiling.multiplyCooldown);
-            veiling.playSound(SoundEvents.ENTITY_GENERIC_EXTINGUISH_FIRE, 1.0F, 1.0F);
         }
     }
 

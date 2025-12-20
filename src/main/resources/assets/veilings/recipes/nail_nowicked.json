@@ -1,0 +1,16 @@
+{
+  "type": "forge:ore_shaped",
+  "pattern": [
+    "i  ",
+    " q ",
+    "  g"
+  ],
+  "key": {
+    "i": { "item": "veilings:impresario_silk" },
+    "q": { "item": "minecraft:quartz" },
+    "g": { "item": "minecraft:glowstone" }
+  },
+  "result": {
+    "item": "veilings:nail_nowicked"
+  }
+}

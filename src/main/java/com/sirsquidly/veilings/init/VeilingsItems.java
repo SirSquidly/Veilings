@@ -32,6 +32,11 @@ public class VeilingsItems
     public static Item VEILING_EGG = new ItemVeilingEgg();
     public static Item VEILING_ESSENCE = new Item().setCreativeTab(CreativeTabs.MISC);
     public static Item VEILING_WEAVE = new Item().setCreativeTab(CreativeTabs.MISC);
+    public static Item IMPRESARIO_SILK = new Item().setCreativeTab(CreativeTabs.MISC);
+
+    public static Item NAIL_NODIE = new ItemVeilingNail("undying_bonus", 1.0F);
+    public static Item NAIL_NOMULT = new ItemVeilingNail("multiply_immunity_bonus", 1.0F);
+    public static Item NAIL_NOWICKED = new ItemVeilingNail("wicked_immunity_bonus", 1.0F);
 
     public static Item VEILING_TIRAMISU = new ItemVeilingTreat(5, 0.6F, false).setPotionEffect(new PotionEffect(MobEffects.ABSORPTION, 30 * 20, 0), 1.0F);
     public static Item COMMAND_SCEPTRE = new ItemCommandSceptre();
@@ -57,6 +62,11 @@ public class VeilingsItems
         itemReadyForRegister(VEILING_WEAVE, "veiling_weave");
         itemReadyForRegister(CALLING_BELL, "calling_bell");
         itemReadyForRegister(VEILING_TIRAMISU, "veiling_tiramisu");
+        itemReadyForRegister(IMPRESARIO_SILK, "impresario_silk");
+
+        itemReadyForRegister(NAIL_NODIE, "nail_nodie");
+        itemReadyForRegister(NAIL_NOMULT, "nail_nomult");
+        itemReadyForRegister(NAIL_NOWICKED, "nail_nowicked");
 
         itemReadyForRegister(COMMAND_SCEPTRE, "command_sceptre");
 

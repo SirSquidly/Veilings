@@ -95,6 +95,12 @@
 		"subtitle": "subtitle.veilings.item.calling_bell.use",
 		"sounds": [ "veilings:item/calling_bell/calling_bell3"]
 	},
+	"item.veiling_nail.use":
+	{
+		"category": "player",
+		"subtitle": "subtitle.veilings.item.veiling_nail.use",
+		"sounds": [ "veilings:item/nail_use"]
+	},
 	"item.spirit_dagger.use":
 	{
 		"category": "player",

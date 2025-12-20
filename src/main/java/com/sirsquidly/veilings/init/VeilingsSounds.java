@@ -26,6 +26,7 @@ public class VeilingsSounds
     public static SoundEvent ENTITY_VEILING_TANTRUM = soundReadyForRegister("entity.veiling.tantrum");
 
     public static SoundEvent ITEM_ATTACK_SCEPTRE_USE = soundReadyForRegister("item.command_sceptre.use");
+    public static SoundEvent ITEM_VEILING_NAIL_USE = soundReadyForRegister("item.veiling_nail.use");
     public static SoundEvent ITEM_VEILING_OUTFIT_EQUIP = soundReadyForRegister("item.veiling_outfit.equip");
     public static SoundEvent ITEM_VEILING_OUTFIT_UNEQUIP_SHEARS = soundReadyForRegister("item.veiling_outfit.unequip_shears");
 

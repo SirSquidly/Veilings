@@ -1,0 +1,16 @@
+{
+  "type": "forge:ore_shaped",
+  "pattern": [
+    "i  ",
+    " q ",
+    "  t"
+  ],
+  "key": {
+    "i": { "item": "veilings:impresario_silk" },
+    "q": { "item": "minecraft:quartz" },
+    "t": { "item": "minecraft:totem_of_undying" }
+  },
+  "result": {
+    "item": "veilings:nail_nodie"
+  }
+}

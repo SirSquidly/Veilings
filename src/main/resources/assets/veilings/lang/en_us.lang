@@ -34,6 +34,9 @@ description.veilings.mask_dramatist.desc2=Dramatists will shoot spirit daggers.
 description.veilings.mask_dramatist.desc3=
 description.veilings.mask_dramatist.desc4=When worn, and near Veiling Dramatists,
 description.veilings.mask_dramatist.desc5=Spirit Daggers from you and Dramatists apply Weakness.
+description.veilings.nail.undying_bonus.desc1=Prevents a Veiling from Death, exactly once
+description.veilings.nail.multiply_immunity_bonus.desc1=Prevents a Veiling from Multiplying
+description.veilings.nail.wicked_immunity_bonus.desc1=Prevents a Veiling from turning Wicked
 description.veilings.veiling_tiramisu.desc1=Permanently increases Veiling Health by 2,
 description.veilings.veiling_tiramisu.desc2=up to 30 max.
 description.veilings.veiling_tiramisu.desc3=
@@ -50,12 +53,17 @@ entity.veilings.wicked_veiling_custodian.name=Wicked Veiling Custodian
 entity.veilings.wicked_veiling_deft.name=Wicked Veiling Deft
 entity.veilings.wicked_veiling_dramatist.name=Wicked Veiling Dramatist
 
+
 item.veilings.calling_bell.name=Calling Bell
 item.veilings.command_sceptre.name=Command Sceptre
 item.veilings.false_fetus.name=False Fetus
+item.veilings.impresario_silk.name=Impresario Silk
 item.veilings.mask_deft.name=Veiling Deft Mask
 item.veilings.mask_custodian.name=Veiling Custodian Mask
 item.veilings.mask_dramatist.name=Veiling Dramatist Mask
+item.veilings.nail_nodie.name=Undying Nail
+item.veilings.nail_nomult.name=Viscous Nail
+item.veilings.nail_nowicked.name=Stabilizing Nail
 item.veilings.spirit_dagger.name=Spirit Dagger
 item.veilings.veiling_essence.name=Veiling Essence
 item.veilings.veiling_weave.name=Veiling Weave
@@ -98,6 +106,7 @@ subtitle.veilings.item.spirit_dagger.use=Player summons Spirit Dagger
 subtitle.veilings.item.spirit_dagger.shoot=Spirit Dagger flies
 subtitle.veilings.item.veiling_outfit.equip=Veiling Outfit equips
 subtitle.veilings.item.veiling_outfit.unequip_shears=Veiling Outfit snips away
+subtitle.veilings.item.veiling_nail.use=Nail pierces
 
 
 config.veilings.title=Veilings Config
