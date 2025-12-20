@@ -6,10 +6,13 @@ import net.minecraft.client.renderer.color.IItemColor;
 import net.minecraft.client.renderer.color.ItemColors;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.MobEffects;
+import net.minecraft.init.SoundEvents;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemArmor;
 import net.minecraft.potion.PotionEffect;
 import net.minecraftforge.client.event.ColorHandlerEvent;
 import net.minecraftforge.client.event.ModelRegistryEvent;
+import net.minecraftforge.common.util.EnumHelper;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
@@ -23,6 +26,9 @@ import java.util.List;
 public class VeilingsItems
 {
     public static final List<Item> itemList = new ArrayList<Item>();
+
+    public static final ItemArmor.ArmorMaterial MASK = EnumHelper.addArmorMaterial("veiling_mask_mat", veilings.MOD_ID + ":veiling_mask_mat", 10, new int[]{0, 0, 0, 0}, 0, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 0.0F);
+
     public static Item VEILING_EGG = new ItemVeilingEgg();
     public static Item VEILING_ESSENCE = new Item().setCreativeTab(CreativeTabs.MISC);
     public static Item VEILING_WEAVE = new Item().setCreativeTab(CreativeTabs.MISC);
@@ -31,9 +37,9 @@ public class VeilingsItems
     public static Item COMMAND_SCEPTRE = new ItemCommandSceptre();
     public static Item CALLING_BELL = new ItemCallingBell();
 
-    public static Item VEILING_MASK_DEFT = new ItemVeilingMask(0);
-    public static Item VEILING_MASK_CUSTODIAN = new ItemVeilingMask(1);
-    public static Item VEILING_MASK_DRAMATIST = new ItemVeilingMask(2);
+    public static Item VEILING_MASK_DEFT = new ItemVeilingMask(MASK,0);
+    public static Item VEILING_MASK_CUSTODIAN = new ItemVeilingMask(MASK,1);
+    public static Item VEILING_MASK_DRAMATIST = new ItemVeilingMask(MASK,2);
     public static Item SPIRIT_DAGGER = new ItemSpiritDagger();
 
     public static Item VEILING_ARMOR_OUTFIT = new ItemVeilingOutfit(0, "armor", true);

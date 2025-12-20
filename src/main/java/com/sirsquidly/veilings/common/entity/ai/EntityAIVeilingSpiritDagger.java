@@ -2,10 +2,14 @@ package com.sirsquidly.veilings.common.entity.ai;
 
 import com.sirsquidly.veilings.common.entity.EntitySpiritDagger;
 import com.sirsquidly.veilings.common.entity.AbstractVeiling;
+import com.sirsquidly.veilings.common.item.ItemVeilingMask;
 import com.sirsquidly.veilings.init.VeilingsSounds;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.EntityAIBase;
 import net.minecraft.entity.ai.RandomPositionGenerator;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.inventory.EntityEquipmentSlot;
+import net.minecraft.item.Item;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
@@ -99,6 +103,20 @@ public class EntityAIVeilingSpiritDagger extends EntityAIBase
     public void spawnSpiritDagger()
     {
         EntitySpiritDagger dagger = new EntitySpiritDagger(world, veiling, attackTarget);
+
+        if (this.veiling.getOwnerId() != null)
+        {
+            EntityPlayer owner = this.world.getPlayerEntityByUUID(this.veiling.getOwnerId());
+            if (owner != null && owner.getDistance(this.veiling) <= 10.0D)
+            {
+                Item headSlot = owner.getItemStackFromSlot(EntityEquipmentSlot.HEAD).getItem();
+                if (headSlot instanceof ItemVeilingMask && ((ItemVeilingMask)headSlot).getMaskType() == 2)
+                {
+                    dagger.setAppliesWeakness(true);
+                }
+            }
+        }
+
 
         double s1 = attackTarget.posY - (veiling.posY + 0.5);
         double s2 = attackTarget.posX - veiling.posX;

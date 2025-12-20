@@ -4,6 +4,7 @@ import com.sirsquidly.veilings.client.model.ModelVeilingBase;
 import com.sirsquidly.veilings.client.model.ModelVeilingDeft;
 import com.sirsquidly.veilings.common.entity.ai.*;
 import com.sirsquidly.veilings.common.entity.wicked.AbstractWickedVeiling;
+import com.sirsquidly.veilings.common.item.ItemVeilingMask;
 import com.sirsquidly.veilings.common.item.ItemVeilingOutfit;
 import com.sirsquidly.veilings.config.ConfigCache;
 import com.sirsquidly.veilings.init.VeilingsSounds;
@@ -23,6 +24,7 @@ import net.minecraft.init.Blocks;
 import net.minecraft.init.MobEffects;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.inventory.EntityEquipmentSlot;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemNameTag;
 import net.minecraft.item.ItemShears;
 import net.minecraft.item.ItemStack;
@@ -383,6 +385,19 @@ public class AbstractVeiling extends EntityTameable
         {
             this.applyEnchantments(this, entityIn);
             this.getHeldItemMainhand().damageItem(1, this);
+
+            if (this.getOwnerId() != null)
+            {
+                EntityPlayer owner = this.world.getPlayerEntityByUUID(this.getOwnerId());
+                if (owner != null && owner.getDistance(this) <= 10.0D)
+                {
+                    Item headSlot = owner.getItemStackFromSlot(EntityEquipmentSlot.HEAD).getItem();
+                    if (headSlot instanceof ItemVeilingMask && ((ItemVeilingMask)headSlot).getMaskType() == 0)
+                    {
+                        this.addPotionEffect(new PotionEffect(MobEffects.SPEED, 4 * 20));
+                    }
+                }
+            }
         }
 
         return flag;

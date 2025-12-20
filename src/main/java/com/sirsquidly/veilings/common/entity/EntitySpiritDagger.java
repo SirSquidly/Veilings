@@ -5,7 +5,9 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.passive.EntityTameable;
 import net.minecraft.entity.projectile.EntityThrowable;
+import net.minecraft.init.MobEffects;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.math.RayTraceResult;
@@ -20,6 +22,8 @@ public class EntitySpiritDagger extends EntityThrowable
     private int lifeTicks;
     protected EntityLivingBase target;
     private UUID targetUUID;
+
+    private boolean appliesWeakness;
 
     private boolean storedInitialMotion;
     private double storedX;
@@ -113,21 +117,31 @@ public class EntitySpiritDagger extends EntityThrowable
                 if (entity instanceof EntityTameable && ((EntityTameable)entity).getOwnerId() != null && ((EntityTameable)entity).getOwnerId().equals(this.getThrower().getUniqueID())) return;
 
                 int i = 3;
-                result.entityHit.attackEntityFrom(DamageSource.causeThrownDamage(this, this.getThrower()), (float)i);
+                entity.attackEntityFrom(DamageSource.causeThrownDamage(this, this.getThrower()), (float)i);
+
+                if (this.appliesWeakness && entity instanceof EntityLivingBase)
+                {
+                    ((EntityLivingBase)entity).addPotionEffect(new PotionEffect(MobEffects.WEAKNESS, 3 * 20, 0));
+                }
+
                 this.setDead();
             }
         }
     }
 
+    public void setAppliesWeakness(boolean weaknessIn) { this.appliesWeakness = weaknessIn; }
+
     public void readEntityFromNBT(NBTTagCompound compound)
     {
         super.readEntityFromNBT(compound);
+        this.appliesWeakness = compound.getBoolean("AppliesWeakness");
         this.targetUUID = compound.getUniqueId("TargetUUID");
     }
 
     public void writeEntityToNBT(NBTTagCompound compound)
     {
         super.writeEntityToNBT(compound);
+        compound.setBoolean("AppliesWeakness", this.appliesWeakness);
         if (this.targetUUID != null)
         { compound.setUniqueId("TargetUUID", this.targetUUID);  }
     }

@@ -2,9 +2,17 @@ package com.sirsquidly.veilings.common.entity.ai;
 
 import com.sirsquidly.veilings.client.model.ModelVeilingBase;
 import com.sirsquidly.veilings.common.entity.AbstractVeiling;
+import com.sirsquidly.veilings.common.item.ItemVeilingMask;
 import com.sirsquidly.veilings.init.VeilingsSounds;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.ai.EntityAIBase;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.MobEffects;
+import net.minecraft.inventory.EntityEquipmentSlot;
+import net.minecraft.item.Item;
+import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.EnumParticleTypes;
+import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldServer;
@@ -21,7 +29,7 @@ public class EntityAIVeilingHealNearby extends EntityAIBase
     private final World world;
     protected int runDelay;
 
-    private AbstractVeiling veilingPatient;
+    private EntityLivingBase veilingPatient;
     private int healingTime;
 
     public EntityAIVeilingHealNearby(AbstractVeiling veilingIn)
@@ -39,6 +47,21 @@ public class EntityAIVeilingHealNearby extends EntityAIBase
         }
 
         if (this.veilingPatient != null) return true;
+
+        /* Custodians prioritize healing their owner. */
+        if (this.veiling.getOwnerId() != null)
+        {
+            EntityPlayer owner = this.world.getPlayerEntityByUUID(this.veiling.getOwnerId());
+            if (owner != null  && owner.isEntityAlive() && owner.getHealth() < owner.getMaxHealth() && owner.getDistance(this.veiling) <= 8.0D)
+            {
+                Item headSlot = owner.getItemStackFromSlot(EntityEquipmentSlot.HEAD).getItem();
+                if (headSlot instanceof ItemVeilingMask && ((ItemVeilingMask)headSlot).getMaskType() == 1)
+                {
+                    this.veilingPatient = owner;
+                    return true;
+                }
+            }
+        }
 
         List<AbstractVeiling> nearbyVeilings = world.getEntitiesWithinAABB(AbstractVeiling.class, veiling.getEntityBoundingBox().grow(6),
                 entity -> entity != this.veiling && (this.veiling.getOwnerId() != null && entity.getOwnerId() != null && entity.getOwnerId().equals(this.veiling.getOwnerId())));
@@ -95,6 +118,10 @@ public class EntityAIVeilingHealNearby extends EntityAIBase
         {
             this.veilingPatient.heal(4);
 
+            /* Rewards the Custodian with Absorption if they healed their owner. */
+            if (this.veilingPatient instanceof EntityPlayer)
+            { this.veiling.addPotionEffect(new PotionEffect(MobEffects.ABSORPTION, 180 * 20, 0)); }
+
             ((WorldServer)world).spawnParticle(EnumParticleTypes.SPELL_WITCH,
                     this.veilingPatient.posX, this.veilingPatient.posY + (this.veilingPatient.height * 0.5D), this.veilingPatient.posZ,
                     10,
@@ -102,7 +129,7 @@ public class EntityAIVeilingHealNearby extends EntityAIBase
                     0.05D
             );
 
-            this.veilingPatient.playSound(VeilingsSounds.ITEM_ATTACK_SCEPTRE_USE, 1.0F, 0.2F);
+            world.playSound(null, this.veilingPatient.getPosition(), VeilingsSounds.ITEM_ATTACK_SCEPTRE_USE, SoundCategory.NEUTRAL, 1.0F, 0.2F);
             this.veilingPatient = null;
             this.healingTime = 0;
 
