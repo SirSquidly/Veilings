@@ -10,7 +10,6 @@ import com.sirsquidly.veilings.common.entity.EntityVeilingDeft;
 import com.sirsquidly.veilings.veilings;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.entity.RenderManager;
-import net.minecraft.client.renderer.entity.layers.LayerArrow;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;

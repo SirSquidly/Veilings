@@ -123,12 +123,10 @@ public class EntityAIVeilingSpiritDagger extends EntityAIBase
         double s4 = attackTarget.posZ - veiling.posZ;
         dagger.shoot(s2, s1, s4, 0.9F, 1.0F);
 
-        double forward = 0.75;
         dagger.setPosition(veiling.posX, veiling.posY + (double)veiling.getEyeHeight() - 0.10000000149011612D + 0.5, veiling.posZ);
 
         this.veiling.playSound(VeilingsSounds.ENTITY_VEILING_SHOOT, 0.7F, (this.veiling.world.rand.nextFloat() * 0.3F) + 0.9F);
         this.veiling.world.spawnEntity(dagger);
         this.veiling.swingArm(EnumHand.MAIN_HAND);
-        //this.veiling.playSound(event, 1.0F, 1.0F);
     }
 }

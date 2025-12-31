@@ -1,7 +1,5 @@
 package com.sirsquidly.veilings.common.entity;
 
-import com.sirsquidly.veilings.client.model.ModelVeilingBase;
-import com.sirsquidly.veilings.client.model.ModelVeilingDeft;
 import com.sirsquidly.veilings.common.entity.ai.*;
 import com.sirsquidly.veilings.common.entity.wicked.AbstractWickedVeiling;
 import com.sirsquidly.veilings.common.item.ItemVeilingMask;
@@ -73,7 +71,6 @@ public class AbstractVeiling extends EntityTameable
     private static final DataParameter<Integer> SPAWN_COOLDOWN = EntityDataManager.createKey(AbstractVeiling.class, DataSerializers.VARINT);
 
     public ItemStack favoriteFood = ItemStack.EMPTY;
-    private boolean dancing = false;
     public boolean snowballFighting = false;
 
     private float animTransSpeed = 0.4F;
@@ -337,11 +334,9 @@ public class AbstractVeiling extends EntityTameable
                     this.navigator.clearPath();
                     this.setAttackTarget(null);
 
-                    System.out.print("Max Health:" + this.getMaxHealth());
+                    //System.out.print("Max Health:" + this.getMaxHealth());
                 }
 
-                //this.dataManager.set(DANCE_TYPE, this.rand.nextInt(8));
-                //this.setArmPose(ModelVeilingBase.PoseBody.SITTING);
                 player.swingArm(hand);
                 return true;
             }
@@ -391,7 +386,7 @@ public class AbstractVeiling extends EntityTameable
             if (veiling.getMood() > 10) veiling.shiftHappiness(ConfigCache.mod_dthSft);
         }
 
-        this.setArmPose(ModelVeilingBase.PoseBody.EMPTY);
+        this.setArmPose(AbstractVeiling.PoseBody.EMPTY);
 
         if (!world.isRemote)
         {
@@ -444,7 +439,7 @@ public class AbstractVeiling extends EntityTameable
 
     public void tantrumUpdate()
     {
-        setArmPose(ModelVeilingBase.PoseBody.CRYING);
+        setArmPose(AbstractVeiling.PoseBody.CRYING);
         ((WorldServer)this.world).spawnParticle(
                 EnumParticleTypes.WATER_SPLASH,
                 this.posX, this.posY + this.getEyeHeight(), this.posZ,
@@ -477,7 +472,7 @@ public class AbstractVeiling extends EntityTameable
                 }
                 else
                 {
-                    setArmPose(ModelVeilingBase.PoseBody.EMPTY);
+                    setArmPose(AbstractVeiling.PoseBody.EMPTY);
                     shiftHappiness(120);
                 }
             }
@@ -507,7 +502,7 @@ public class AbstractVeiling extends EntityTameable
     public float getClientAnimationTime(float partialTick)
     { return this.prevAnimationTime + (this.animationTime - this.prevAnimationTime) * partialTick;  }
 
-    public void setArmPose(ModelVeilingBase.PoseBody pose)
+    public void setArmPose(AbstractVeiling.PoseBody pose)
     {
         int newOrdinal = pose.ordinal();
         int oldOrdinal = this.getArmPose().ordinal();
@@ -519,8 +514,9 @@ public class AbstractVeiling extends EntityTameable
             this.animationTime = 0.0F;
         }
     }
-    public ModelVeilingDeft.PoseBody getArmPose()
-    { return ModelVeilingDeft.PoseBody.values()[this.dataManager.get(ARM_POSE)]; }
+
+    public PoseBody getArmPose()
+    { return PoseBody.values()[this.dataManager.get(ARM_POSE)]; }
 
     /** 0 = Follow, 1 = Wander, 2 = Sit */
     public int getCommandMode() { return this.dataManager.get(COMMAND_MODE); }
@@ -547,8 +543,6 @@ public class AbstractVeiling extends EntityTameable
     public int getDanceType() { return this.dataManager.get(DANCE_TYPE); }
     public void setSitType(int state) { this.dataManager.set(SIT_TYPE, state); }
     public int getSitType() { return this.dataManager.get(SIT_TYPE); }
-
-    public void setAnimTransSpeed(float newSpeed) { this.animTransSpeed = newSpeed; }
 
     public ItemStack getBodyOutfit() { return this.dataManager.get(OUTFIT_ITEM_BODY); }
     public void setBodyOutfit(ItemStack stack)
@@ -622,6 +616,23 @@ public class AbstractVeiling extends EntityTameable
         { this.attributeDifferences.put(entry.getKey(), entry.getValue()); }
 
         this.setupAttributeDifferences();
+    }
+
+    /**
+     * An enum for the different Body Poses, used to keep things organized easier.
+     *
+     * Non-alphabetical so Empty is the default animation state.
+     * */
+    public enum PoseBody
+    {
+        EMPTY,
+        SITTING,
+        SLEEPING,
+        WAVING,
+        BEGGING,
+        CASTING,
+        CRYING,
+        DANCING;
     }
 
     public void writeEntityToNBT(NBTTagCompound compound)

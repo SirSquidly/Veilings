@@ -24,8 +24,6 @@ public class AbstractWickedVeiling extends AbstractVeiling
 {
     protected static final DataParameter<Optional<UUID>> OLD_OWNER_UUID = EntityDataManager.<Optional<UUID>>createKey(AbstractWickedVeiling.class, DataSerializers.OPTIONAL_UNIQUE_ID);
 
-    public int multiplyCooldown = 6000;
-
     public AbstractWickedVeiling(World worldIn)
     { super(worldIn); }
 

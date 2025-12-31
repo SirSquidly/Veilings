@@ -1,15 +1,12 @@
 package com.sirsquidly.veilings.util.veilingItemUse;
 
 import com.sirsquidly.veilings.common.entity.AbstractVeiling;
-import com.sirsquidly.veilings.common.entity.wicked.AbstractWickedVeiling;
-import com.sirsquidly.veilings.common.item.ItemVeilingMask;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.EnumParticleTypes;
-import net.minecraft.util.SoundEvent;
 import net.minecraft.world.WorldServer;
 
 import java.util.Random;

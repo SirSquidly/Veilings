@@ -1,6 +1,5 @@
 package com.sirsquidly.veilings.common.entity.ai;
 
-import com.sirsquidly.veilings.client.model.ModelVeilingBase;
 import com.sirsquidly.veilings.common.entity.AbstractVeiling;
 import com.sirsquidly.veilings.util.veilingItemUse.IVeilingItemUse;
 import com.sirsquidly.veilings.util.veilingItemUse.VeilingItemUseRegistry;
@@ -29,7 +28,7 @@ public class EntityAIVeilingBeg extends EntityAIBase
     public boolean shouldExecute()
     {
         this.player = this.world.getClosestPlayerToEntity(this.veiling, this.minPlayerDistance);
-        return this.player == null ? false : this.hasTemptationItemInHand(this.player) && this.veiling.getArmPose() == ModelVeilingBase.PoseBody.EMPTY;
+        return this.player == null ? false : this.hasTemptationItemInHand(this.player) && this.veiling.getArmPose() == AbstractVeiling.PoseBody.EMPTY;
     }
 
     public boolean shouldContinueExecuting()
@@ -44,13 +43,13 @@ public class EntityAIVeilingBeg extends EntityAIBase
 
     public void startExecuting()
     {
-        this.veiling.setArmPose(ModelVeilingBase.PoseBody.BEGGING);
+        this.veiling.setArmPose(AbstractVeiling.PoseBody.BEGGING);
         this.timeoutCounter = 40 + this.veiling.getRNG().nextInt(40);
     }
 
     public void resetTask()
     {
-        if (this.veiling.getArmPose() == ModelVeilingBase.PoseBody.BEGGING) this.veiling.setArmPose(ModelVeilingBase.PoseBody.EMPTY);
+        if (this.veiling.getArmPose() == AbstractVeiling.PoseBody.BEGGING) this.veiling.setArmPose(AbstractVeiling.PoseBody.EMPTY);
         this.player = null;
     }
 

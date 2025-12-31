@@ -1,10 +1,7 @@
 package com.sirsquidly.veilings.util.veilingItemUse;
 
 import com.sirsquidly.veilings.common.entity.AbstractVeiling;
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
-
-import javax.annotation.Nullable;
 
 public interface IVeilingItemUse
 {

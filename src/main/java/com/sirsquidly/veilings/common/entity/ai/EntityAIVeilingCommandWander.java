@@ -1,12 +1,10 @@
 package com.sirsquidly.veilings.common.entity.ai;
 
 import com.google.common.base.Predicate;
-import com.sirsquidly.veilings.client.model.ModelVeilingBase;
 import com.sirsquidly.veilings.common.entity.AbstractVeiling;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockBed;
 import net.minecraft.block.BlockCarpet;
-import net.minecraft.block.material.Material;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.ai.EntityAIBase;
@@ -16,7 +14,6 @@ import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
-import net.minecraft.world.WorldServer;
 
 import java.util.List;
 
@@ -63,7 +60,7 @@ public class EntityAIVeilingCommandWander extends EntityAIBase
         switch (currentActivity)
         {
             case 0:
-                veiling.setArmPose(ModelVeilingBase.PoseBody.EMPTY);
+                veiling.setArmPose(AbstractVeiling.PoseBody.EMPTY);
                 randomActivity();
                 break;
             case 1:
@@ -75,7 +72,7 @@ public class EntityAIVeilingCommandWander extends EntityAIBase
                 }
                 break;
             case 2:
-                veiling.setArmPose(ModelVeilingBase.PoseBody.SITTING);
+                veiling.setArmPose(AbstractVeiling.PoseBody.SITTING);
                 veiling.getNavigator().clearPath();
                 break;
             case 3:
@@ -91,12 +88,12 @@ public class EntityAIVeilingCommandWander extends EntityAIBase
                     else
                     {
                         veiling.getNavigator().clearPath();
-                        veiling.setArmPose(ModelVeilingBase.PoseBody.SLEEPING);
+                        veiling.setArmPose(AbstractVeiling.PoseBody.SLEEPING);
                     }
                 }
 
 
-                veiling.setArmPose(ModelVeilingBase.PoseBody.SLEEPING);
+                veiling.setArmPose(AbstractVeiling.PoseBody.SLEEPING);
                 veiling.getNavigator().clearPath();
                 break;
             case 4:

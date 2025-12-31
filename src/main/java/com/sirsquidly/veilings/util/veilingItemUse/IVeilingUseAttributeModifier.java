@@ -1,15 +1,11 @@
 package com.sirsquidly.veilings.util.veilingItemUse;
 
 import com.sirsquidly.veilings.common.entity.AbstractVeiling;
-import net.minecraft.init.MobEffects;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.world.WorldServer;
-
-import java.util.UUID;
 
 public class IVeilingUseAttributeModifier implements IVeilingItemUse
 {

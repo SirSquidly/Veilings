@@ -1,6 +1,5 @@
 package com.sirsquidly.veilings.common.entity.ai;
 
-import com.sirsquidly.veilings.client.model.ModelVeilingBase;
 import com.sirsquidly.veilings.common.entity.AbstractVeiling;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.ai.EntityAIBase;
@@ -42,17 +41,17 @@ public class EntityAIVeilingCommandSit extends EntityAIBase
 
             if (animationCooldown <= 0)
             {
-                if (this.veiling.getArmPose() == ModelVeilingBase.PoseBody.EMPTY) this.veiling.setArmPose(ModelVeilingBase.PoseBody.SITTING);
-                else this.veiling.setArmPose(ModelVeilingBase.PoseBody.EMPTY);
+                if (this.veiling.getArmPose() == AbstractVeiling.PoseBody.EMPTY) this.veiling.setArmPose(AbstractVeiling.PoseBody.SITTING);
+                else this.veiling.setArmPose(AbstractVeiling.PoseBody.EMPTY);
 
                 this.animationCooldown = 120 + this.veiling.world.rand.nextInt(600);
             }
         }
         /* If they are moving, then stop sitting! */
         else
-        { if (this.veiling.getArmPose() == ModelVeilingBase.PoseBody.SITTING) this.veiling.setArmPose(ModelVeilingBase.PoseBody.EMPTY); }
+        { if (this.veiling.getArmPose() == AbstractVeiling.PoseBody.SITTING) this.veiling.setArmPose(AbstractVeiling.PoseBody.EMPTY); }
     }
 
     public void resetTask()
-    { if (this.veiling.getArmPose() == ModelVeilingBase.PoseBody.SITTING) this.veiling.setArmPose(ModelVeilingBase.PoseBody.EMPTY); }
+    { if (this.veiling.getArmPose() == AbstractVeiling.PoseBody.SITTING) this.veiling.setArmPose(AbstractVeiling.PoseBody.EMPTY); }
 }

@@ -1,5 +1,6 @@
 package com.sirsquidly.veilings.client.model;
 
+import com.sirsquidly.veilings.common.entity.AbstractVeiling;
 import net.minecraft.client.model.ModelBox;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
@@ -24,8 +25,6 @@ public class ModelVeilingDeft extends ModelVeilingBase
     {
         textureWidth = textureWidthIn;
         textureHeight = textureHeightIn;
-
-        this.bodyPose = PoseBody.EMPTY;
 
         main = new ModelRenderer(this);
         main.setRotationPoint(0.0F, 24.0F, 0.0F);

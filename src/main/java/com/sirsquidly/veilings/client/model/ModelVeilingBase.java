@@ -6,8 +6,6 @@ import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.EnumHandSide;
 import net.minecraft.util.math.MathHelper;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -34,7 +32,7 @@ public class ModelVeilingBase extends ModelBase
     public ModelRenderer arms;
     public ModelRenderer upper_body;
     public ModelRenderer lower_body;
-    public ModelVeilingBase.PoseBody bodyPose;
+    public AbstractVeiling.PoseBody bodyPose;
     private final List<ModelRenderer> allowedArrowSpots = new ArrayList<>();
 
     public void setRotationAngles(float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scaleFactor, Entity entityIn)
@@ -97,7 +95,7 @@ public class ModelVeilingBase extends ModelBase
         this.legL.rotateAngleZ = 0F;
 
 
-        if (this.bodyPose == PoseBody.EMPTY)
+        if (this.bodyPose == AbstractVeiling.PoseBody.EMPTY)
         {
             this.armR.rotateAngleX = MathHelper.cos(limbSwing * 0.6662F + (float)Math.PI) * 2.0F * limbSwingAmount * 0.5F / f;
             this.armL.rotateAngleX = MathHelper.cos(limbSwing * 0.6662F) * 2.0F * limbSwingAmount * 0.5F / f;
@@ -151,7 +149,7 @@ public class ModelVeilingBase extends ModelBase
             }
         }
 
-        if (holding && this.bodyPose == PoseBody.EMPTY)
+        if (holding && this.bodyPose == AbstractVeiling.PoseBody.EMPTY)
         {
             this.arms.rotateAngleX = -1F;
             this.armL.rotateAngleX = 0F;
@@ -160,7 +158,7 @@ public class ModelVeilingBase extends ModelBase
             this.armL.rotateAngleZ = -this.armR.rotateAngleZ;
         }
 
-        switch (PoseBody.values()[veiling.previousPose])
+        switch (AbstractVeiling.PoseBody.values()[veiling.previousPose])
         {
             case EMPTY:
                 break;
@@ -408,18 +406,4 @@ public class ModelVeilingBase extends ModelBase
     /** Only pull a spot from MY list! */
     public ModelRenderer getRandomModelBox(Random rand)
     { return allowedArrowSpots.get(rand.nextInt(allowedArrowSpots.size())); }
-
-    /** Non-alphabetical so Empty is the default animation state. */
-    @SideOnly(Side.CLIENT)
-    public enum PoseBody
-    {
-        EMPTY,
-        SITTING,
-        SLEEPING,
-        WAVING,
-        BEGGING,
-        CASTING,
-        CRYING,
-        DANCING;
-    }
 }

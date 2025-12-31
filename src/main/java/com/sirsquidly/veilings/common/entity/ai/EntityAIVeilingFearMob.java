@@ -2,7 +2,6 @@ package com.sirsquidly.veilings.common.entity.ai;
 
 import com.google.common.base.Predicate;
 import com.google.common.base.Predicates;
-import com.sirsquidly.veilings.client.model.ModelVeilingBase;
 import com.sirsquidly.veilings.common.entity.AbstractVeiling;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityCreature;
@@ -25,7 +24,7 @@ public class EntityAIVeilingFearMob<T extends Entity> extends EntityAIAvoidEntit
     public void resetTask()
     {
         super.resetTask();
-        if (this.veiling.getArmPose() == ModelVeilingBase.PoseBody.CRYING) this.veiling.setArmPose(ModelVeilingBase.PoseBody.EMPTY);
+        if (this.veiling.getArmPose() == AbstractVeiling.PoseBody.CRYING) this.veiling.setArmPose(AbstractVeiling.PoseBody.EMPTY);
     }
 
     public void updateTask()
@@ -37,7 +36,7 @@ public class EntityAIVeilingFearMob<T extends Entity> extends EntityAIAvoidEntit
         if (this.entity.getDistanceSq(this.closestLivingEntity) < 49.0D)
         {
             veiling.shiftHappiness(-1, false);
-            veiling.setArmPose(ModelVeilingBase.PoseBody.CRYING);
+            veiling.setArmPose(AbstractVeiling.PoseBody.CRYING);
             veiling.playSound(veiling.getPanicSound(), 1.0F, veiling.getPublicSoundPitch());
         }
     }

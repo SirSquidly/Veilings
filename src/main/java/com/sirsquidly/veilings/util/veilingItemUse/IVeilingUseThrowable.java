@@ -1,6 +1,5 @@
 package com.sirsquidly.veilings.util.veilingItemUse;
 
-import com.sirsquidly.veilings.client.model.ModelVeilingBase;
 import com.sirsquidly.veilings.common.entity.AbstractVeiling;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.IProjectile;

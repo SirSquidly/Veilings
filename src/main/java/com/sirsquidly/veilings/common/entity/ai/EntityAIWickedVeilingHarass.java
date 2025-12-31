@@ -1,6 +1,5 @@
 package com.sirsquidly.veilings.common.entity.ai;
 
-import com.sirsquidly.veilings.client.model.ModelVeilingBase;
 import com.sirsquidly.veilings.common.entity.AbstractVeiling;
 import com.sirsquidly.veilings.common.entity.wicked.AbstractWickedVeiling;
 import net.minecraft.entity.ai.EntityAIBase;
@@ -49,7 +48,7 @@ public class EntityAIWickedVeilingHarass extends EntityAIBase
     public void resetTask()
     {
         this.veilingVictim = null;
-        if (this.veiling.getArmPose() == ModelVeilingBase.PoseBody.CASTING) this.veiling.setArmPose(ModelVeilingBase.PoseBody.EMPTY);
+        if (this.veiling.getArmPose() == AbstractVeiling.PoseBody.CASTING) this.veiling.setArmPose(AbstractVeiling.PoseBody.EMPTY);
     }
 
     public void updateTask()
@@ -70,12 +69,12 @@ public class EntityAIWickedVeilingHarass extends EntityAIBase
         if (dist > 3.0D)
         {
             veiling.getNavigator().tryMoveToEntityLiving(this.veilingVictim, 1.1D);
-            if (this.veiling.getArmPose() == ModelVeilingBase.PoseBody.CASTING) this.veiling.setArmPose(ModelVeilingBase.PoseBody.EMPTY);
+            if (this.veiling.getArmPose() == AbstractVeiling.PoseBody.CASTING) this.veiling.setArmPose(AbstractVeiling.PoseBody.EMPTY);
         }
         else
         {
             veiling.getNavigator().clearPath();
-            this.veiling.setArmPose(ModelVeilingBase.PoseBody.CASTING);
+            this.veiling.setArmPose(AbstractVeiling.PoseBody.CASTING);
 
             if (veiling.onGround) veiling.motionY += world.rand.nextFloat() * 0.5F;
 

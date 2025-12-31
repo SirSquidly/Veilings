@@ -2,7 +2,6 @@ package com.sirsquidly.veilings.client.render.layers;
 
 import com.sirsquidly.veilings.client.model.ModelVeilingBase;
 import com.sirsquidly.veilings.client.render.RenderVeilingBase;
-import com.sirsquidly.veilings.client.render.RenderVeilingDeft;
 import com.sirsquidly.veilings.common.entity.AbstractVeiling;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.ModelRenderer;
@@ -43,7 +42,7 @@ public class LayerVeilingHeldItem implements LayerRenderer<AbstractVeiling>
             Item item = itemstack.getItem();
             Minecraft minecraft = Minecraft.getMinecraft();
 
-            if (entitylivingbaseIn.getArmPose() == ModelVeilingBase.PoseBody.EMPTY)
+            if (entitylivingbaseIn.getArmPose() == AbstractVeiling.PoseBody.EMPTY)
             {
                 ModelRenderer arms = model.arms;
                 /* First, move to the center. */

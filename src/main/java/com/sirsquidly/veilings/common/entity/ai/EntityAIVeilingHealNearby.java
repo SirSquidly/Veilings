@@ -1,6 +1,5 @@
 package com.sirsquidly.veilings.common.entity.ai;
 
-import com.sirsquidly.veilings.client.model.ModelVeilingBase;
 import com.sirsquidly.veilings.common.entity.AbstractVeiling;
 import com.sirsquidly.veilings.common.item.ItemVeilingMask;
 import com.sirsquidly.veilings.init.VeilingsSounds;
@@ -79,7 +78,7 @@ public class EntityAIVeilingHealNearby extends EntityAIBase
     {
         this.veilingPatient = null;
         this.healingTime = 0;
-        if (this.veiling.getArmPose() == ModelVeilingBase.PoseBody.CASTING) this.veiling.setArmPose(ModelVeilingBase.PoseBody.EMPTY);
+        if (this.veiling.getArmPose() == AbstractVeiling.PoseBody.CASTING) this.veiling.setArmPose(AbstractVeiling.PoseBody.EMPTY);
     }
 
     public void updateTask()
@@ -94,7 +93,7 @@ public class EntityAIVeilingHealNearby extends EntityAIBase
         }
 
         this.veiling.getLookHelper().setLookPositionWithEntity(this.veilingPatient, 30F, 30F);
-        this.veiling.setArmPose(ModelVeilingBase.PoseBody.CASTING);
+        this.veiling.setArmPose(AbstractVeiling.PoseBody.CASTING);
 
 
         float f = this.veiling.renderYawOffset * 0.017453292F + MathHelper.cos((float)this.veiling.ticksExisted * 0.6662F) * 0.25F;

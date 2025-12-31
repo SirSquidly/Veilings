@@ -29,9 +29,6 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class CommonProxy
 {
-    public static DamageSource causeNightmareDamage(Entity source)
-    { return (new EntityDamageSource(veilings.MOD_ID + "." + "nightmare", source)).setDamageBypassesArmor().setDamageIsAbsolute(); }
-
     public void preInitRegisteries(FMLPreInitializationEvent event)
     {
         VeilingsEntities.registerEntities();

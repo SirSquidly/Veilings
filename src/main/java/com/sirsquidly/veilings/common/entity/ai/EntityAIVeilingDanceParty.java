@@ -1,6 +1,5 @@
 package com.sirsquidly.veilings.common.entity.ai;
 
-import com.sirsquidly.veilings.client.model.ModelVeilingBase;
 import com.sirsquidly.veilings.common.entity.AbstractVeiling;
 import net.minecraft.block.BlockJukebox;
 import net.minecraft.entity.ai.EntityAIBase;
@@ -51,7 +50,7 @@ public class EntityAIVeilingDanceParty extends EntityAIBase
 
     public void resetTask()
     {
-        if (this.veiling.getArmPose() == ModelVeilingBase.PoseBody.DANCING) this.veiling.setArmPose(ModelVeilingBase.PoseBody.EMPTY);
+        if (this.veiling.getArmPose() == AbstractVeiling.PoseBody.DANCING) this.veiling.setArmPose(AbstractVeiling.PoseBody.EMPTY);
         this.jukeboxPosition = null;
         this.checkDelay = 20 + world.rand.nextInt(20);
     }
@@ -61,7 +60,7 @@ public class EntityAIVeilingDanceParty extends EntityAIBase
         --this.checkDelay;
         --this.danceTimer;
 
-        this.veiling.setArmPose(ModelVeilingBase.PoseBody.DANCING);
+        this.veiling.setArmPose(AbstractVeiling.PoseBody.DANCING);
 
         if  (this.checkDelay <= 0)
         {

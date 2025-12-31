@@ -1,6 +1,5 @@
 package com.sirsquidly.veilings.client.render.layers;
 
-import com.sirsquidly.veilings.client.model.ModelVeilingBase;
 import com.sirsquidly.veilings.client.render.RenderVeilingBase;
 import com.sirsquidly.veilings.common.entity.AbstractVeiling;
 import com.sirsquidly.veilings.common.entity.wicked.AbstractWickedVeiling;
@@ -23,7 +22,7 @@ public class LayerVeilingEyeColor implements LayerRenderer<AbstractVeiling>
     public void doRenderLayer(AbstractVeiling entity, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch, float scale)
     {
         if (entity instanceof AbstractWickedVeiling) return;
-        if (entity.getArmPose() == ModelVeilingBase.PoseBody.SLEEPING) return;
+        if (entity.getArmPose() == AbstractVeiling.PoseBody.SLEEPING) return;
 
         ResourceLocation EYECOLOR = new ResourceLocation(veilings.MOD_ID + ":textures/entities/veiling/eyes/veiling_"+ veilingTypeString + "_eye" + entity.getEyeColor() + ".png");
         this.veilingRender.bindTexture(EYECOLOR);

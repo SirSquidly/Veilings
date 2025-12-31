@@ -30,7 +30,6 @@ public class ItemVeilingMask extends ItemArmor
     private final String DEFT_TEXTURE = veilings.MOD_ID + ":textures/entities/veiling/veiling_deft.png";
     private final String DRAMATIST_TEXTURE = veilings.MOD_ID + ":textures/entities/veiling/veiling_dramatist.png";
     private final String[] ARMOR_TEXTURES = new String[] {DEFT_TEXTURE, CUSTODIAN_TEXTURE, DRAMATIST_TEXTURE};
-    private final ModelBiped[] ARMOR_MODELS = new ModelBiped[] {new ModelDeftMask(0.0F), new ModelCustodianMask(0.0F), new ModelDramatistMask(0.0F)};
 
     int maskType;
     private final String[] MASK_NAME = new String[] {"mask_deft", "mask_custodian", "mask_dramatist"};
@@ -61,7 +60,24 @@ public class ItemVeilingMask extends ItemArmor
     @Override
     @SideOnly(Side.CLIENT)
     public ModelBiped getArmorModel(EntityLivingBase entityLiving, ItemStack itemStack, EntityEquipmentSlot armorSlot, ModelBiped _default)
-    { return ARMOR_MODELS[maskType]; }
+    { return getMaskModel(maskType); }
+
+    /** This method is used instead of a static list, since ModelBiped is Clientside only. */
+    @SideOnly(Side.CLIENT)
+    private ModelBiped getMaskModel(int maskType)
+    {
+        switch (maskType)
+        {
+            default:
+            case 0:
+                return new ModelDeftMask(0.0F);
+            case 1:
+                return new ModelCustodianMask(0.0F);
+            case 2:
+                return new ModelDramatistMask(0.0F);
+        }
+    }
+
 
     @Override
     @SideOnly(Side.CLIENT)
